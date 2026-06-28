@@ -38,7 +38,7 @@ Search for **Custom WebUI CSS** in Community Applications and install it.
 
 **Main menu → Settings → Display Settings → Color theme → Black**
 
-This is required. The glass overlay assumes a dark base — other color themes will conflict with the CSS.
+This is required. The glass overlay assumes a dark base (other color themes will conflict with the CSS).
 
 ### 3. Add a background image
 
