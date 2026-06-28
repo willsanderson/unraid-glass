@@ -48,7 +48,7 @@ Place your wallpaper at:
 /boot/config/plugins/custom.css/assets/bg.jpg
 ```
 
-Any image works. Landscape photos or abstract gradients look best. Falls back to a dark navy `#152843` base color).
+Any image works. Landscape photos or abstract gradients look best. Falls back to a dark navy `#152843` base background color).
 
 ### 4. Apply the CSS
 
