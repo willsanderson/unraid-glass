@@ -26,7 +26,7 @@ A custom CSS theme for the Unraid web UI with a rounded glass aesthetic.
 |--------|---------|
 | [Custom.CSS](https://github.com/WuSiYu/unraid-custom-css) | Injects the CSS and hosts the background image |
 
-Install **Custom.CSS** via Community Applications (search `Custom CSS`).
+Install **Custom.CSS** via Community Applications (search `Custom WebUI CSS`).
 
 ## Installation
 
