@@ -1,6 +1,6 @@
 # Unraid Glass
 
-A custom CSS theme for the Unraid web UI with a liquid glass aesthetic.
+A custom CSS theme for the Unraid web UI with a rounded glass aesthetic.
 
 ![Dashboard Light](screenshot-dashboard.png)
 
