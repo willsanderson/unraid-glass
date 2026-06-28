@@ -1,6 +1,6 @@
 # Unraid Glass
 
-A custom CSS theme for the Unraid web UI with a liquid glass aesthetic — frosted glass panels, blurred backgrounds, Apple-system color palette, and pill-shaped controls.
+A custom CSS theme for the Unraid web UI with a liquid glass aesthetic.
 
 ![Dashboard Light](screenshot-dashboard.png)
 
@@ -13,9 +13,6 @@ A custom CSS theme for the Unraid web UI with a liquid glass aesthetic — frost
 - **Apple color palette** — system green, blue, orange, red, teal throughout
 - **Pill buttons & tabs** — rounded controls on every form, dialog, and nav element
 - **Themed navigation** — floating frosted nav tiles with active/hover states
-- **Styled popups** — SweetAlert confirmation dialogs and nchan update output styled to match
-- **Docker panel** — iOS-style toggle switches, clean row layout
-- **Community Apps** — glass card panels, Apple-colored ribbons, themed buttons
 - **Light & dark mode** — full support for both via `prefers-color-scheme`
 - **Mobile responsive** — stacked nav tiles, adaptive layouts for small screens
 
@@ -30,15 +27,6 @@ A custom CSS theme for the Unraid web UI with a liquid glass aesthetic — frost
 | [Custom.CSS](https://forums.unraid.net/topic/46403-plugin-ca-custom-css-javascript/) | Injects the CSS and hosts the background image |
 
 Install **Custom.CSS** via Community Applications (search `Custom CSS`).
-
-### Optional but Recommended
-
-| Plugin | Purpose |
-|--------|---------|
-| [Community Applications](https://forums.unraid.net/topic/38582-plug-in-community-applications/) | Styled app cards, ribbons, and search UI |
-| [DashStats](https://forums.unraid.net/topic/139996-plugin-dashstats/) | The dashboard widget panels this theme is designed around |
-
----
 
 ## Installation
 
@@ -56,19 +44,9 @@ Place your wallpaper at:
 
 Any image works. Landscape photos or abstract gradients look best. The theme works without one (falls back to a dark navy `#152843` base color).
 
-### 3. Install the theme CSS
-
-Copy `unraid-glass.css` to your Unraid server and paste its contents into the Custom.CSS plugin's CSS field:
-
 **Main menu → Settings → Custom CSS**
 
-Paste the full contents of `unraid-glass.css` into the CSS box, then click **Apply**.
-
-Alternatively, if you prefer file-based management, place the file at:
-
-```
-/boot/config/plugins/custom.css/custom.css
-```
+Paste the full contents of `unraid-glass.css` into the Global CSS box, then click **Apply**.
 
 ### 4. Reload the Unraid web UI
 
