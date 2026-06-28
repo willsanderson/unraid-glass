@@ -2,8 +2,11 @@
 
 A custom CSS theme for the Unraid web UI with a liquid glass aesthetic — frosted glass panels, blurred backgrounds, Apple-system color palette, and pill-shaped controls.
 
-![Dashboard Dark](screenshot-dashboard-dark.png)
+Light Mode
 ![Dashboard Light](screenshot-dashboard-light.png)
+
+Dark Mode
+![Dashboard Dark](screenshot-dashboard-dark.png)
 
 ---
 
