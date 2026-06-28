@@ -24,7 +24,7 @@ A custom CSS theme for the Unraid web UI with a rounded glass aesthetic.
 
 | Plugin | Purpose |
 |--------|---------|
-| [Custom.CSS](https://forums.unraid.net/topic/46403-plugin-ca-custom-css-javascript/) | Injects the CSS and hosts the background image |
+| [Custom.CSS](https://github.com/WuSiYu/unraid-custom-css) | Injects the CSS and hosts the background image |
 
 Install **Custom.CSS** via Community Applications (search `Custom CSS`).
 
@@ -32,7 +32,7 @@ Install **Custom.CSS** via Community Applications (search `Custom CSS`).
 
 ### 1. Install the Custom.CSS plugin
 
-Search for **Custom CSS** in Community Applications and install it.
+Search for **Custom WebUI CSS** in Community Applications and install it.
 
 ### 2. Set the Dynamix color theme to Black
 
