@@ -34,7 +34,13 @@ Install **Custom.CSS** via Community Applications (search `Custom CSS`).
 
 Search for **Custom CSS** in Community Applications and install it.
 
-### 2. Add a background image
+### 2. Set the Dynamix color theme to Black
+
+**Main menu → Settings → Display Settings → Color theme → Black**
+
+This is required. The glass overlay assumes a dark base — other color themes will conflict with the CSS.
+
+### 3. Add a background image
 
 Place your wallpaper at:
 
@@ -44,11 +50,13 @@ Place your wallpaper at:
 
 Any image works. Landscape photos or abstract gradients look best. The theme works without one (falls back to a dark navy `#152843` base color).
 
+### 4. Apply the CSS
+
 **Main menu → Settings → Custom CSS**
 
 Paste the full contents of `unraid-glass.css` into the Global CSS box, then click **Apply**.
 
-### 4. Reload the Unraid web UI
+### 5. Reload the Unraid web UI
 
 Hard-refresh your browser (`Cmd+Shift+R` / `Ctrl+Shift+R`) to clear the stylesheet cache.
 
