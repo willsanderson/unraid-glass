@@ -26,7 +26,7 @@ A custom CSS theme for the Unraid web UI with a rounded glass aesthetic.
 |--------|---------|
 | [Custom.CSS](https://github.com/WuSiYu/unraid-custom-css) | Injects the CSS and hosts the background image |
 
-Install **Custom.CSS** via Community Applications (search `Custom CSS`).
+Install **Custom.CSS** via Community Applications (search `Custom WebUI CSS`).
 
 ## Installation
 
@@ -48,7 +48,7 @@ Place your wallpaper at:
 /boot/config/plugins/custom.css/assets/bg.jpg
 ```
 
-Any image works. Landscape photos or abstract gradients look best. The theme works without one (falls back to a dark navy `#152843` base color).
+Any image works. Landscape photos or abstract gradients look best. Falls back to a dark navy `#152843` base background color).
 
 ### 4. Apply the CSS
 
