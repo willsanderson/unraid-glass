@@ -3013,6 +3013,26 @@ div#remotes-buttons button:hover {
   .content {
     padding-left: 8px !important;
     padding-right: 8px !important;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Dashboard tiles — prevent them from expanding past the viewport */
+  tbody.sortable {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    table-layout: fixed !important;
+  }
+
+  tbody.sortable > tr > td,
+  tbody.sortable > tr > th {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: normal !important;
   }
 
   div.Panels {
@@ -3404,8 +3424,6 @@ div#remotes-buttons button:hover {
  * VM Manager Plugin
  ******************************************************/
 
-/* VM form wrapper — glass tile rendered via ::before so the XML column
-   sits visually outside the frosted container (right: 374px) */
 div.domain {
   background: transparent !important;
   background-color: transparent !important;
@@ -3456,8 +3474,7 @@ div.domain blockquote {
   background-image: none !important;
 }
 
-/* Template picker dialog buttons (Cancel, Import from File, Upload)
-   Also covers the Add-VM page Cancel/Import/Upload in div.content > center */
+/* Template picker */
 #dialogWindow button,
 #dialogWindow button[type="button"],
 div.content > center > button,
@@ -3608,7 +3625,7 @@ div.domain ul.jqueryFileTree li a:hover {
   outline: none !important;
 }
 
-/* XML preview textareas — shift right to avoid overlapping the form input column */
+/* XML preview */
 div.domain textarea.xml,
 div.domain .formview textarea.xml {
   margin-left: 24px !important;
@@ -3661,7 +3678,7 @@ div.template_img_chooser_inner.active {
   border-color: rgba(10, 132, 255, 0.55) !important;
 }
 
-/* XML / Form view panels — clear any inherited backgrounds */
+/* XML / Form view panels */
 div.domain div.xmlview,
 div.domain div.formview,
 div.domain div.advanced,

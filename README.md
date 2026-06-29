@@ -86,6 +86,20 @@ Light mode overrides are in the `@media (prefers-color-scheme: light)` block. Th
 
 ---
 
+## Lite / Low-Power Mode
+
+If you want to disable the backdrop blur for performance (older hardware, low-power devices, or just preference), paste the following into the **Additional CSS for Black Theme** field — do **not** put it in the Global CSS box, as that would conflict with the main stylesheet:
+
+```css
+:root { --custom-blur: none; }
+html { background-image: none !important; }
+body::before { background-image: none !important; }
+```
+
+The background image lines are required alongside the blur toggle. Without the blur effect, the wallpaper has no frosted glass layer over it, so it should be removed too.
+
+---
+
 ## Compatibility
 
 Tested on **Unraid 7.x** with Chrome/Chromium-based browsers. Firefox is supported but `backdrop-filter` blur rendering may differ slightly on older versions.
