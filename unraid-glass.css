@@ -1926,8 +1926,7 @@ div.user-list a:hover {
   border-color: var(--custom-border-panel-hover) !important;
 }
 
-/* User card tooltip — Apple glass pill, anchored above-left of the card.
-   span[style] targets only the JS-injected tooltip span, not static username spans. */
+/* User card tooltip */
 div.user-list a > span[style] {
   position: absolute !important;
   top: auto !important;
@@ -2410,6 +2409,176 @@ tbody.sortable canvas {
 }
 
 /******************************************************
+ * Unassigned Devices Plugin
+ ******************************************************/
+
+/* Reset outer containers — title divs sit above the glass tiles, not inside */
+div.show-shares,
+div.show-disks {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding-bottom: 0 !important;
+  margin-bottom: var(--custom-dashboard-widget-gap) !important;
+}
+
+/* Tables — glass tile applied directly so title divs stay outside */
+table.samba_mounts,
+table.usb_mounts,
+table.usb_absent {
+  background: var(--custom-dashboard-tile-bg) !important;
+  background-color: var(--custom-dashboard-tile-bg) !important;
+  background-image: none !important;
+  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  border: 1px solid var(--custom-dashboard-tile-border) !important;
+  border-radius: var(--custom-dashboard-tile-radius) !important;
+  box-shadow: var(--custom-dashboard-tile-shadow) !important;
+  overflow: hidden !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  width: 100% !important;
+  margin: 0 0 8px !important;
+}
+
+/* Header row */
+table.samba_mounts thead tr > th,
+table.samba_mounts thead tr > td,
+table.usb_mounts thead tr > th,
+table.usb_mounts thead tr > td,
+table.usb_absent thead tr > th,
+table.usb_absent thead tr > td {
+  background: var(--custom-table-header-bg) !important;
+  background-color: var(--custom-table-header-bg) !important;
+  color: var(--custom-text-primary) !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+  padding: 6px 8px !important;
+  border-color: var(--custom-border-subtle) !important;
+  box-shadow: none !important;
+}
+
+/* Body cells */
+table.samba_mounts tbody tr > td,
+table.samba_mounts tbody tr > th,
+table.usb_mounts tbody tr > td,
+table.usb_mounts tbody tr > th,
+table.usb_absent tbody tr > td,
+table.usb_absent tbody tr > th {
+  background: var(--custom-table-cell-bg) !important;
+  background-color: var(--custom-table-cell-bg) !important;
+  border-color: var(--custom-border-subtle) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  color: var(--custom-text-primary) !important;
+  padding: 6px 8px !important;
+}
+
+table.samba_mounts tbody tr:nth-child(even) > td,
+table.samba_mounts tbody tr:nth-child(even) > th,
+table.usb_mounts tbody tr:nth-child(even) > td,
+table.usb_mounts tbody tr:nth-child(even) > th,
+table.usb_absent tbody tr:nth-child(even) > td,
+table.usb_absent tbody tr:nth-child(even) > th {
+  background: var(--custom-table-stripe-bg) !important;
+  background-color: var(--custom-table-stripe-bg) !important;
+}
+
+table.samba_mounts tbody tr:hover > td,
+table.samba_mounts tbody tr:hover > th,
+table.usb_mounts tbody tr:hover > td,
+table.usb_mounts tbody tr:hover > th,
+table.usb_absent tbody tr:hover > td,
+table.usb_absent tbody tr:hover > th {
+  background: var(--custom-table-hover-bg) !important;
+  background-color: var(--custom-table-hover-bg) !important;
+}
+
+/* First / last column padding */
+table.samba_mounts tr > th:first-child,
+table.samba_mounts tr > td:first-child,
+table.usb_mounts tr > th:first-child,
+table.usb_mounts tr > td:first-child,
+table.usb_absent tr > th:first-child,
+table.usb_absent tr > td:first-child { padding-left: 16px !important; }
+
+table.samba_mounts tr > th:last-child,
+table.samba_mounts tr > td:last-child,
+table.usb_mounts tr > th:last-child,
+table.usb_mounts tr > td:last-child,
+table.usb_absent tr > th:last-child,
+table.usb_absent tr > td:last-child { padding-right: 16px !important; }
+
+/* Tooltip */
+span.help-content {
+  background: rgb(10, 80, 200) !important;
+  background-color: rgb(10, 80, 200) !important;
+  backdrop-filter: blur(12px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  border: 1px solid rgba(10, 132, 255, 0.55) !important;
+  border-radius: 999px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 1.1rem !important;
+  font-variant: normal !important;
+  letter-spacing: normal !important;
+  text-shadow: none !important;
+  padding: 4px 14px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.30) !important;
+  white-space: nowrap !important;
+}
+
+/* Section title variants */
+div.title.ud,
+div.title.shift {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* Action buttons */
+div#remotes-buttons {
+  padding: 10px 0 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  background: transparent !important;
+}
+
+div#remotes-buttons a,
+div#remotes-buttons input[type="button"],
+div#remotes-buttons button {
+  background: rgba(10, 132, 255, 0.10) !important;
+  background-color: rgba(10, 132, 255, 0.10) !important;
+  background-image: none !important;
+  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  border: 1px solid rgba(10, 132, 255, 0.32) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  padding: 8px 18px !important;
+  text-decoration: none !important;
+  transition: background 0.15s ease, border-color 0.15s ease !important;
+}
+
+div#remotes-buttons a:hover,
+div#remotes-buttons input[type="button"]:hover,
+div#remotes-buttons button:hover {
+  background: #0A84FF !important;
+  background-color: #0A84FF !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/******************************************************
  * Mobile Fixes
  ******************************************************/
 @media screen and (max-width: 768px) {
@@ -2733,7 +2902,13 @@ tbody.sortable canvas {
 
   /* Table header */
   div.TableContainer table thead tr > th,
-  div.TableContainer table thead tr > td {
+  div.TableContainer table thead tr > td,
+  table.samba_mounts thead tr > th,
+  table.samba_mounts thead tr > td,
+  table.usb_mounts thead tr > th,
+  table.usb_mounts thead tr > td,
+  table.usb_absent thead tr > th,
+  table.usb_absent thead tr > td {
     color: #1B1B1B !important;
     text-shadow: none !important;
   }
