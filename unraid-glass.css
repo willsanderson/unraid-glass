@@ -1526,12 +1526,16 @@ div.title .switch-button-button,
  * VM Dashboard Tile
  ******************************************************/
 
-/* Clear native var(--mild-background-color) from VM row spans */
 #vm_view span.outer,
 #vm_view span.outer.solid,
 #vm_view span.outer.solid.vms,
 #vm_view span.inner,
-#vm_view td > span {
+#vm_view td > span,
+#vm_view_usage span.outer,
+#vm_view_usage span.outer.solid,
+#vm_view_usage span.outer.solid.vmsuse,
+#vm_view_usage span.inner,
+#vm_view_usage td > span {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;

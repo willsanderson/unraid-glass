@@ -3,6 +3,8 @@
 A custom CSS theme for the Unraid web UI with a rounded glass aesthetic.
 
 ![Dashboard Light](screenshot-dashboard.png)
+![Dashboard Dark](screenshot-dashboard-dark.png)
+![Mobile](screenshot-mobile.png)
 
 ---
 
