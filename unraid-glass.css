@@ -3035,3 +3035,50 @@ div#remotes-buttons button:hover {
     stroke: #ffffff !important;
   }
 }
+/******************************************************
+ * Docker Status Colors
+ ******************************************************/
+
+/* Started */
+#docker_view span.outer.started i,
+#docker_view span.outer.started span.state {
+    color: #30D158 !important;
+    font-weight: 600 !important;
+}
+
+/* Stopped */
+#docker_view span.outer.stopped i,
+#docker_view span.outer.stopped span.state {
+    color: #FF453A !important;
+    font-weight: 600 !important;
+}
+/******************************************************
+ * Virtual Machines
+ ******************************************************/
+
+/* Remove black background */
+#vm_view tr.updated,
+#vm_view tr.updated td,
+#vm_view tr.updated td > span,
+#vm_view tr.updated td > span.outer,
+#vm_view tr.updated td > span.outer > span.inner {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Started */
+#vm_view span.outer.started i,
+#vm_view span.outer.started span.state {
+    color: #30D158 !important;
+    font-weight: 600 !important;
+}
+
+/* Stopped */
+#vm_view span.outer.stopped i,
+#vm_view span.outer.stopped span.state {
+    color: #FF453A !important;
+    font-weight: 600 !important;
+}
