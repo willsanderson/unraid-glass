@@ -626,8 +626,43 @@ hr[class*="from-unraid-red"],
   background-color: rgba(255, 255, 255, 0.14) !important;
 }
 
-.sweet-alert fieldset:not(.docker) {
+/* Hide empty placeholder fieldsets but NOT ones containing actual inputs (e.g. User Scripts prompt) */
+.sweet-alert fieldset:not(.docker):not(:has(input)):not(:has(textarea)):not(:has(select)) {
   display: none !important;
+}
+
+/* Style visible input fieldsets — strip native fieldset chrome, add spacing */
+.sweet-alert fieldset:has(input),
+.sweet-alert fieldset:has(textarea),
+.sweet-alert fieldset:has(select) {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  margin-top: 16px !important;
+}
+
+.sweet-alert fieldset input[type="text"],
+.sweet-alert fieldset input[type="password"],
+.sweet-alert fieldset textarea {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  padding: 10px 18px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  font-size: 1.3rem !important;
+  text-shadow: none !important;
+}
+
+.sweet-alert fieldset input[type="text"]:focus,
+.sweet-alert fieldset input[type="password"]:focus,
+.sweet-alert fieldset textarea:focus {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
 }
 
 .sweet-alert fieldset.docker {
@@ -1583,7 +1618,7 @@ div.TableContainer input[type="submit"],
   background-image: none !important;
   backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
   -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  border: 1px solid rgba(10, 132, 255, 0.32) !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
   border-radius: 999px !important;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
 }
@@ -1620,7 +1655,7 @@ div.TableContainer input[type="submit"]:disabled,
   background-image: none !important;
   backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
   -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  border: 1px solid rgba(10, 132, 255, 0.32) !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
   color: rgba(255, 255, 255, 0.45) !important;
   opacity: 1 !important;
   box-shadow: none !important;
@@ -2091,7 +2126,7 @@ div.user-list a img {
   background-image: none !important;
   backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
   -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  border: 1px solid rgba(10, 132, 255, 0.32) !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
   border-radius: 999px !important;
   box-shadow: none !important;
   text-shadow: none !important;
@@ -2530,7 +2565,7 @@ tbody.sortable canvas {
  * Unassigned Devices Plugin
  ******************************************************/
 
-/* Reset outer containers — title divs sit above the glass tiles, not inside */
+/* Reset outer containers */
 div.show-shares,
 div.show-disks {
   background: transparent !important;
@@ -2546,7 +2581,7 @@ div.show-disks {
   margin-bottom: var(--custom-dashboard-widget-gap) !important;
 }
 
-/* Tables — glass tile applied directly so title divs stay outside */
+/* Tables */
 table.samba_mounts,
 table.usb_mounts,
 table.usb_absent {
@@ -2675,7 +2710,7 @@ div#remotes-buttons button {
   background-image: none !important;
   backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
   -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  border: 1px solid rgba(10, 132, 255, 0.32) !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
   border-radius: 999px !important;
   color: #ffffff !important;
   text-shadow: none !important;
@@ -3152,4 +3187,190 @@ div#remotes-buttons button:hover {
     fill: #ffffff !important;
     stroke: #ffffff !important;
   }
+}
+
+/******************************************************
+ * User Scripts Plugin
+ ******************************************************/
+#categories-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+#categories-container .category,
+#categories-container .category:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.category-header {
+  background: rgba(255, 255, 255, 0.10) !important;
+  background-image: none !important;
+  backdrop-filter: blur(12px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.17) !important;
+  border-radius: 12px !important;
+  color: var(--custom-text-primary) !important;
+  padding: 10px 16px 10px 36px !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  margin-bottom: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+#categories-container .category-header:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  background-image: none !important;
+  backdrop-filter: blur(12px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+}
+
+.category-header * {
+  color: var(--custom-text-primary) !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+.category-content {
+  background: var(--custom-dashboard-tile-bg) !important;
+  background-image: none !important;
+  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  border: 1px solid var(--custom-dashboard-tile-border) !important;
+  border-radius: var(--custom-dashboard-tile-radius) !important;
+  box-shadow: var(--custom-dashboard-tile-shadow) !important;
+}
+
+/* Row hover */
+.vo-highlight tr::after {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-image: none !important;
+  border-radius: 8px !important;
+}
+
+.vo-highlight tr:hover::after {
+  opacity: 1 !important;
+}
+
+.category-content .category-scripts tr > td {
+  padding: 8px 12px !important;
+}
+
+/******************************************************
+ * User Scripts — Tooltipster Popup
+ ******************************************************/
+.tooltipster-box {
+  background: var(--custom-dashboard-tile-bg) !important;
+  background-color: var(--custom-dashboard-tile-bg) !important;
+  background-image: none !important;
+  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  border: 1px solid var(--custom-dashboard-tile-border) !important;
+  border-radius: var(--custom-dashboard-tile-radius) !important;
+  box-shadow: var(--custom-dashboard-tile-shadow) !important;
+}
+
+.tooltipster-sidetip .tooltipster-content {
+  color: var(--custom-text-primary) !important;
+  padding: 12px 16px !important;
+}
+
+.tooltipster-arrow {
+  display: none !important;
+}
+
+.tooltipster-content input[type="button"] {
+  background: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  padding: 7px 16px !important;
+  margin: 3px 3px 3px 0 !important;
+  cursor: pointer !important;
+  min-width: auto !important;
+  transition: background 0.15s ease, border-color 0.15s ease !important;
+}
+
+.tooltipster-content input[type="button"]:first-of-type {
+  margin-top: 10px !important;
+}
+
+.tooltipster-content input[type="button"]:hover {
+  background: #0A84FF !important;
+  background-color: #0A84FF !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/******************************************************
+ * VM Manager Plugin
+ ******************************************************/
+
+/* Template picker dialog buttons (Cancel, Import from File, Upload) */
+#dialogWindow button,
+#dialogWindow button[type="button"] {
+  background: rgba(255, 255, 255, 0.10) !important;
+  background-color: rgba(255, 255, 255, 0.10) !important;
+  background-image: none !important;
+  backdrop-filter: blur(12px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
+  padding: 8px 20px !important;
+  cursor: pointer !important;
+  transition: background 0.15s ease, border-color 0.15s ease !important;
+}
+
+#dialogWindow button:hover,
+#dialogWindow button[type="button"]:hover {
+  background: #0A84FF !important;
+  background-color: #0A84FF !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* CPU core selector boxes */
+.cpu-box {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 8px !important;
+}
+
+/* VM form textareas (QEMU command line, etc.) */
+#vmform textarea {
+  background: rgba(255, 255, 255, 0.06) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 12px !important;
+  color: #ffffff !important;
+  padding: 12px 16px !important;
+  box-sizing: border-box !important;
+}
+
+#vmform textarea:focus {
+  border-color: rgba(255, 255, 255, 0.32) !important;
+  outline: none !important;
 }
