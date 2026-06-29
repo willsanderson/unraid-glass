@@ -626,12 +626,10 @@ hr[class*="from-unraid-red"],
   background-color: rgba(255, 255, 255, 0.14) !important;
 }
 
-/* Hide empty placeholder fieldsets (appear in both confirmation and nchan dialogs) */
 .sweet-alert fieldset:not(.docker) {
   display: none !important;
 }
 
-/* nchan update output — docker terminal sections only */
 .sweet-alert fieldset.docker {
   position: relative !important;
   margin-top: 2.4em !important;
@@ -796,13 +794,13 @@ i.fa.fa-fw.fa-info-circle.control {
   display: none !important;
 }
 
-/* Right tile */
+/* Right tile overflow */
 #menu .nav-tile.right {
   flex: 0 0 auto !important;
   padding-left: 3px !important;
   padding-right: 3px !important;
   gap: 0 !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 /* Left tile items */
@@ -913,6 +911,126 @@ i.fa.fa-fw.fa-info-circle.control {
 }
 
 
+/* Search Input */
+span#guiSearchBoxSpan,
+#guiSearchBoxSpan {
+  display: inline-flex !important;
+  align-items: center !important;
+  position: relative !important;
+  background: rgba(10, 18, 44, 0.88) !important;
+  background-color: rgba(10, 18, 44, 0.88) !important;
+  background-image: none !important;
+  backdrop-filter: blur(12px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* Reset Wrapper */
+span#guiSearchBoxSpan div.awesomplete,
+#guiSearchBoxSpan div.awesomplete {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+span#guiSearchBoxSpan input[type="text"],
+#guiSearchBoxSpan input[type="text"] {
+  background: rgba(21, 40, 67, 0.80) !important;
+  background-color: rgba(21, 40, 67, 0.80) !important;
+  background-image: none !important;
+  border: none !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  padding: 6px 14px 6px 36px !important;
+  min-width: 180px !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+span#guiSearchBoxSpan input[type="text"]::placeholder,
+#guiSearchBoxSpan input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.50) !important;
+}
+
+/* Hide caret */
+span#guiSearchBoxSpan .awesomplete > b,
+#guiSearchBoxSpan .awesomplete > b {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+#menu span#guiSearchBoxSpan .awesomplete::before,
+#menu span#guiSearchBoxSpan .awesomplete::after,
+span#guiSearchBoxSpan .awesomplete::before,
+span#guiSearchBoxSpan .awesomplete::after,
+#guiSearchBoxSpan .awesomplete::before,
+#guiSearchBoxSpan .awesomplete::after,
+#menu span#guiSearchBoxSpan ul[role="listbox"]::before,
+#menu span#guiSearchBoxSpan ul[role="listbox"]::after,
+#menu span#guiSearchBoxSpan .awesomplete > ul::before,
+#menu span#guiSearchBoxSpan .awesomplete > ul::after,
+span#guiSearchBoxSpan ul[role="listbox"]::before,
+span#guiSearchBoxSpan ul[role="listbox"]::after,
+span#guiSearchBoxSpan .awesomplete > ul::before,
+span#guiSearchBoxSpan .awesomplete > ul::after {
+  display: none !important;
+  content: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Awesomplete dropdown */
+#menu span#guiSearchBoxSpan ul[role="listbox"],
+#menu span#guiSearchBoxSpan .awesomplete > ul,
+span#guiSearchBoxSpan ul[role="listbox"],
+span#guiSearchBoxSpan .awesomplete > ul {
+  position: absolute !important;
+  z-index: 9999 !important;
+  top: calc(100% + 10px) !important;
+  left: 0 !important;
+  min-width: 280px !important;
+  background: #1a3150 !important;
+  background-color: #1a3150 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+  padding: 8px !important;
+  overflow: hidden !important;
+  list-style: none !important;
+  margin: 0 !important;
+}
+
+span#guiSearchBoxSpan ul[role="listbox"] li,
+span#guiSearchBoxSpan .awesomplete > ul li {
+  padding: 8px 14px !important;
+  color: rgba(255, 255, 255, 0.90) !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  border-radius: 999px !important;
+  transition: background 0.12s ease !important;
+}
+
+/* Highlight on Hover */
+span#guiSearchBoxSpan ul[role="listbox"] li:hover,
+span#guiSearchBoxSpan .awesomplete > ul li:hover {
+  background: rgba(255, 255, 255, 0.10) !important;
+}
+
+span#guiSearchBoxSpan ul[role="listbox"] li mark,
+span#guiSearchBoxSpan .awesomplete > ul li mark {
+  background: transparent !important;
+  color: var(--custom-theme-accent) !important;
+  font-weight: 600 !important;
+}
 
 /******************************************************
  * Dashboard Widget Links / Accent Text

@@ -54,7 +54,9 @@ Any image works. Landscape photos or abstract gradients look best. Falls back to
 
 **Main menu → Settings → Custom WebUI CSS**
 
-Paste the full contents of `unraid-glass.css` into the Global CSS box, then click **Apply**.
+1. Set **Enable Custom CSS** to **Yes**
+2. Paste the full contents of `unraid-glass.css` into the **Global CSS** box
+3. Click **Apply**
 
 ### 5. Reload the Unraid web UI
 
