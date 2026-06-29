@@ -73,6 +73,8 @@
   --custom-nav-tile-mobile:         rgba(38, 38, 50, 0.82);
   --custom-search-bg:               rgba(255, 255, 255, 0.10);
   --custom-search-border:           rgba(255, 255, 255, 0.22);
+  /* Blur — override with `none` in Global CSS for lite/low-power mode */
+  --custom-blur:                    blur(20px) saturate(145%);
 }
 
 /******************************************************
@@ -242,8 +244,8 @@ div.content,
  ******************************************************/
 [data-dismissable-layer] {
   background-color: var(--custom-overlay) !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: none !important;
 }
 
@@ -252,8 +254,8 @@ div.content,
 [data-dismissable-layer] [role="tablist"][class*="bg-input"] {
   background-color: var(--custom-state-hover) !important;
   background-image: none !important;
-  backdrop-filter: blur(8px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(8px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border-color: rgba(255, 255, 255, 0.14) !important;
   border-radius: 999px !important;
   gap: 4px !important;
@@ -331,8 +333,8 @@ div.content,
 #footer {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border-top: none !important;
   box-shadow: none !important;
   padding: 0.75rem 1.5rem !important;
@@ -495,8 +497,8 @@ hr[class*="from-unraid-red"],
   border-radius: var(--custom-dashboard-tile-radius) !important;
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
 }
 
 /* Dialog buttons — pill shape */
@@ -521,8 +523,8 @@ hr[class*="from-unraid-red"],
 .sweet-alert {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
@@ -801,8 +803,8 @@ i.fa.fa-fw.fa-info-circle.control {
 #menu .nav-tile.right {
   background: var(--custom-nav-tile-bg) !important;
   background-color: var(--custom-nav-tile-bg) !important;
-  backdrop-filter: blur(18px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(18px) saturate(120%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-nav-tile-border) !important;
   border-radius: 22px !important;
   box-shadow: none !important;
@@ -955,8 +957,8 @@ span#guiSearchBoxSpan,
   background: rgba(10, 18, 44, 0.88) !important;
   background-color: rgba(10, 18, 44, 0.88) !important;
   background-image: none !important;
-  backdrop-filter: blur(12px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid rgba(255, 255, 255, 0.14) !important;
   border-radius: 999px !important;
   box-shadow: none !important;
@@ -1154,8 +1156,8 @@ tbody.sortable {
   background-color: var(--custom-dashboard-tile-bg) !important;
   background: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   /* Shape */
   border-radius: var(--custom-dashboard-tile-radius) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
@@ -1361,6 +1363,60 @@ tbody.sortable > tr:hover > th {
 
 
 /******************************************************
+ * Toggle Switches (Global)
+ ******************************************************/
+
+/* Base pill shape — covers VM form, tile headers, and any other context
+   not already handled by a more-specific rule below */
+.switch-button-background {
+  background: rgba(120, 120, 128, 0.36) !important;
+  background-color: rgba(120, 120, 128, 0.36) !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  margin: 0 6px !important;
+  position: relative !important;
+  transition: background 0.2s ease, border-color 0.2s ease !important;
+}
+
+.switch-button-background.checked {
+  background: #0A84FF !important;
+  background-color: #0A84FF !important;
+  border-color: transparent !important;
+}
+
+.switch-button-button {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-radius: 999px !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateX(1px) translateY(-50%) scale(0.85) !important;
+  -webkit-transform: translateX(1px) translateY(-50%) scale(0.85) !important;
+  transform-origin: center center !important;
+}
+
+/* Beat `div.title * { background: transparent }` (spec 0,1,1) with (0,2,1) */
+div.title .switch-button-button,
+#displaybox div.title .switch-button-button {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  position: absolute !important;
+}
+
+.switch-button-label {
+  text-shadow: none !important;
+}
+
+.switch-button-label.on {
+  color: #0A84FF !important;
+}
+
+
+/******************************************************
  * Docker Panel
  ******************************************************/
 #docker_view tr.updated td,
@@ -1467,6 +1523,21 @@ tbody.sortable > tr:hover > th {
 }
 
 /******************************************************
+ * VM Dashboard Tile
+ ******************************************************/
+
+/* Clear native var(--mild-background-color) from VM row spans */
+#vm_view span.outer,
+#vm_view span.outer.solid,
+#vm_view span.outer.solid.vms,
+#vm_view span.inner,
+#vm_view td > span {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/******************************************************
  * Settings
  ******************************************************/
 
@@ -1476,8 +1547,8 @@ div.Panels div.Panel > a {
   background: var(--custom-state-subtle) !important;
   background-color: var(--custom-state-subtle) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid rgba(255,255,255,.15) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   color: var(--custom-text-primary) !important;
@@ -1616,8 +1687,8 @@ div.TableContainer input[type="submit"],
   background: rgba(10, 132, 255, 0.10) !important;
   background-color: rgba(10, 132, 255, 0.10) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid rgba(255, 255, 255, 0.20) !important;
   border-radius: 999px !important;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
@@ -1653,8 +1724,8 @@ div.TableContainer input[type="submit"]:disabled,
   background: rgba(10, 132, 255, 0.10) !important;
   background-color: rgba(10, 132, 255, 0.10) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid rgba(255, 255, 255, 0.20) !important;
   color: rgba(255, 255, 255, 0.45) !important;
   opacity: 1 !important;
@@ -1667,8 +1738,8 @@ div.TableContainer input[type="submit"]:disabled,
 
 .tabs button[role="tab"] {
   background: rgba(255, 255, 255, 0.08) !important;
-  backdrop-filter: blur(12px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-border-input) !important;
   border-radius: 999px !important;
   color: var(--custom-text-secondary) !important;
@@ -1682,8 +1753,8 @@ div.TableContainer input[type="submit"]:disabled,
 
 .tabs button[role="tab"][aria-selected="true"] {
   background: rgba(255, 255, 255, 0.34) !important;
-  backdrop-filter: blur(12px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border-color: var(--custom-border-input-hover) !important;
   color: var(--custom-text-primary) !important;
 }
@@ -1691,8 +1762,8 @@ div.TableContainer input[type="submit"]:disabled,
 .tabs button[role="tab"]:hover,
 .tabs button[role="tab"]:focus {
   background: rgba(255, 255, 255, 0.18) !important;
-  backdrop-filter: blur(12px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border-color: var(--custom-border-input-hover) !important;
   color: var(--custom-text-primary) !important;
 }
@@ -1712,8 +1783,8 @@ div.TableContainer input[type="submit"]:disabled,
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
@@ -1770,8 +1841,8 @@ div.TableContainer {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
@@ -2021,8 +2092,8 @@ div.ToggleViewMode .switch-button-label.on {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
@@ -2058,8 +2129,8 @@ div.user-list a {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   box-shadow: none !important;
@@ -2124,8 +2195,8 @@ div.user-list a img {
   background: rgba(10, 132, 255, 0.10) !important;
   background-color: rgba(10, 132, 255, 0.10) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid rgba(255, 255, 255, 0.20) !important;
   border-radius: 999px !important;
   box-shadow: none !important;
@@ -2148,8 +2219,8 @@ span.description {
   background: var(--custom-overlay) !important;
   background-color: var(--custom-overlay) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border-radius: 6px !important;
   padding: 15px !important;
   box-sizing: border-box !important;
@@ -2163,8 +2234,8 @@ span.description {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   box-shadow: none !important;
@@ -2218,8 +2289,8 @@ body > div.searchAreaHolder.menuAdjust div.awesomplete input {
   padding-left: 16px !important;
   padding-right: 16px !important;
   background: var(--custom-search-bg) !important;
-  backdrop-filter: blur(12px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-search-border) !important;
   color: var(--custom-text-primary) !important;
   box-shadow:
@@ -2244,8 +2315,8 @@ body > div.searchAreaHolder.menuAdjust span.searchSubmit {
   align-items: center !important;
   justify-content: center !important;
   background: var(--custom-search-btn-bg) !important;
-  backdrop-filter: blur(12px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-search-btn-border) !important;
   box-shadow:
     inset 0 0.5px 0 var(--custom-border-input),
@@ -2301,8 +2372,8 @@ hr {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
@@ -2588,8 +2659,8 @@ table.usb_absent {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
@@ -2672,8 +2743,8 @@ table.usb_absent tr > td:last-child { padding-right: 16px !important; }
 span.help-content {
   background: rgb(10, 80, 200) !important;
   background-color: rgb(10, 80, 200) !important;
-  backdrop-filter: blur(12px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid rgba(10, 132, 255, 0.55) !important;
   border-radius: 999px !important;
   color: rgba(255, 255, 255, 0.95) !important;
@@ -2708,8 +2779,8 @@ div#remotes-buttons button {
   background: rgba(10, 132, 255, 0.10) !important;
   background-color: rgba(10, 132, 255, 0.10) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid rgba(255, 255, 255, 0.20) !important;
   border-radius: 999px !important;
   color: #ffffff !important;
@@ -3154,6 +3225,19 @@ div#remotes-buttons button:hover {
   div.TableContainer .switch-button-label.on {
     filter: brightness(1.35) !important;
   }
+
+  /* Table header icons/links (sort reset, etc.) — dark so they're visible on light header */
+  div.TableContainer thead a,
+  div.TableContainer thead a i,
+  div.TableContainer thead a span {
+    color: rgba(0, 0, 0, 0.65) !important;
+    fill: rgba(0, 0, 0, 0.65) !important;
+  }
+
+  div.TableContainer thead a:hover,
+  div.TableContainer thead a:hover i {
+    color: rgba(0, 0, 0, 0.90) !important;
+  }
 }
 
 /******************************************************
@@ -3208,8 +3292,8 @@ div#remotes-buttons button:hover {
 .category-header {
   background: rgba(255, 255, 255, 0.10) !important;
   background-image: none !important;
-  backdrop-filter: blur(12px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid rgba(255, 255, 255, 0.17) !important;
   border-radius: 12px !important;
   color: var(--custom-text-primary) !important;
@@ -3226,8 +3310,8 @@ div#remotes-buttons button:hover {
   background: rgba(255, 255, 255, 0.16) !important;
   background-color: rgba(255, 255, 255, 0.16) !important;
   background-image: none !important;
-  backdrop-filter: blur(12px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid rgba(255, 255, 255, 0.28) !important;
 }
 
@@ -3240,8 +3324,8 @@ div#remotes-buttons button:hover {
 .category-content {
   background: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
@@ -3269,8 +3353,8 @@ div#remotes-buttons button:hover {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
-  backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(var(--custom-dashboard-tile-blur)) saturate(145%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
@@ -3320,14 +3404,69 @@ div#remotes-buttons button:hover {
  * VM Manager Plugin
  ******************************************************/
 
-/* Template picker dialog buttons (Cancel, Import from File, Upload) */
+/* VM form wrapper — glass tile rendered via ::before so the XML column
+   sits visually outside the frosted container (right: 374px) */
+div.domain {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+div.domain::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 374px !important;
+  bottom: 0 !important;
+  background: rgba(200, 200, 200, 0.08) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  border: 1px solid rgba(255, 255, 255, 0.17) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    inset 10px 10px 20px -14px rgba(255, 255, 255, 0.10),
+    inset -10px -10px 20px -14px rgba(180, 210, 255, 0.07),
+    inset 0 0 24px rgba(255, 255, 255, 0.03),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.16),
+    0 8px 32px rgba(0, 0, 0, 0.20) !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* Clear native dark table backgrounds throughout VM form */
+div.domain table,
+div.domain table thead,
+div.domain table tbody,
+div.domain table tr,
+div.domain table td,
+div.domain table th,
+div.domain blockquote {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Template picker dialog buttons (Cancel, Import from File, Upload)
+   Also covers the Add-VM page Cancel/Import/Upload in div.content > center */
 #dialogWindow button,
-#dialogWindow button[type="button"] {
+#dialogWindow button[type="button"],
+div.content > center > button,
+div.content > center > button[type="button"] {
   background: rgba(255, 255, 255, 0.10) !important;
   background-color: rgba(255, 255, 255, 0.10) !important;
   background-image: none !important;
-  backdrop-filter: blur(12px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid rgba(255, 255, 255, 0.20) !important;
   border-radius: 999px !important;
   color: #ffffff !important;
@@ -3343,7 +3482,9 @@ div#remotes-buttons button:hover {
 }
 
 #dialogWindow button:hover,
-#dialogWindow button[type="button"]:hover {
+#dialogWindow button[type="button"]:hover,
+div.content > center > button:hover,
+div.content > center > button[type="button"]:hover {
   background: #0A84FF !important;
   background-color: #0A84FF !important;
   border-color: transparent !important;
@@ -3356,6 +3497,98 @@ div#remotes-buttons button:hover {
   background-color: rgba(255, 255, 255, 0.08) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   border-radius: 8px !important;
+  padding: 8px 14px !important;
+}
+
+/* VM form text inputs */
+div.domain input[type="text"],
+div.domain input[type="number"],
+div.domain input[type="password"] {
+  background: rgba(255, 255, 255, 0.06) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  padding: 6px 10px !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+}
+
+div.domain input[type="text"]:focus,
+div.domain input[type="number"]:focus,
+div.domain input[type="password"]:focus {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  background: rgba(255, 255, 255, 0.10) !important;
+  background-color: rgba(255, 255, 255, 0.10) !important;
+}
+
+div.domain input[type="text"]::placeholder,
+div.domain input[type="number"]::placeholder,
+div.domain input[type="password"]::placeholder {
+  color: rgba(255, 255, 255, 0.40) !important;
+}
+
+/* VM form select dropdowns */
+div.domain select {
+  background: rgba(255, 255, 255, 0.06) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  padding: 4px 8px !important;
+  outline: none !important;
+}
+
+div.domain select:focus {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+div.domain select option {
+  background: rgb(22, 24, 34) !important;
+  color: #ffffff !important;
+}
+
+/* File tree picker dropdown */
+div.domain div.textarea.fileTree,
+div.domain div[class*="fileTree"] {
+  background: rgb(22, 24, 34) !important;
+  background-color: rgb(22, 24, 34) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 12px !important;
+  padding: 6px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.40) !important;
+}
+
+div.domain ul.jqueryFileTree {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+div.domain ul.jqueryFileTree li {
+  background: transparent !important;
+  border-radius: 6px !important;
+  padding: 2px 4px !important;
+  transition: background 0.12s ease !important;
+  list-style: none !important;
+}
+
+div.domain ul.jqueryFileTree li:hover {
+  background: rgba(255, 255, 255, 0.10) !important;
+}
+
+div.domain ul.jqueryFileTree li a,
+div.domain ul.jqueryFileTree li a:visited {
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none !important;
+}
+
+div.domain ul.jqueryFileTree li a:hover {
+  color: #ffffff !important;
 }
 
 /* VM form textareas (QEMU command line, etc.) */
@@ -3372,5 +3605,130 @@ div#remotes-buttons button:hover {
 
 #vmform textarea:focus {
   border-color: rgba(255, 255, 255, 0.32) !important;
+  outline: none !important;
+}
+
+/* XML preview textareas — shift right to avoid overlapping the form input column */
+div.domain textarea.xml,
+div.domain .formview textarea.xml {
+  margin-left: 24px !important;
+  box-sizing: border-box !important;
+}
+
+/* VM Icon chooser popup */
+#template_img_chooser_outer {
+  background: rgb(22, 24, 34) !important;
+  background-color: rgb(22, 24, 34) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 16px 48px rgba(0, 0, 0, 0.50) !important;
+  overflow: hidden !important;
+  padding: 12px !important;
+}
+
+#template_img_chooser {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+div.template_img_chooser_inner {
+  background: rgba(255, 255, 255, 0.06) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 10px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  padding: 8px 4px !important;
+  cursor: pointer !important;
+  transition: background 0.15s ease, border-color 0.15s ease !important;
+  text-align: center !important;
+}
+
+div.template_img_chooser_inner:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+div.template_img_chooser_inner.selected,
+div.template_img_chooser_inner.active {
+  background: rgba(10, 132, 255, 0.28) !important;
+  background-color: rgba(10, 132, 255, 0.28) !important;
+  border-color: rgba(10, 132, 255, 0.55) !important;
+}
+
+/* XML / Form view panels — clear any inherited backgrounds */
+div.domain div.xmlview,
+div.domain div.formview,
+div.domain div.advanced,
+div.domain div.xmlview *:not(.CodeMirror):not(.CodeMirror-scroll):not(.CodeMirror-sizer):not(.CodeMirror-gutter):not(.CodeMirror-gutters):not(.CodeMirror-lines) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* CodeMirror XML editor — dark glass theme */
+div.domain .CodeMirror,
+div.domain .CodeMirror.cm-s-default {
+  background: rgba(0, 0, 0, 0.30) !important;
+  background-color: rgba(0, 0, 0, 0.30) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 12px !important;
+  padding: 8px 0 !important;
+}
+
+div.domain .CodeMirror-gutters {
+  background: rgba(0, 0, 0, 0.20) !important;
+  background-color: rgba(0, 0, 0, 0.20) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px 0 0 12px !important;
+}
+
+div.domain .CodeMirror-linenumber {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+div.domain .CodeMirror-cursor {
+  border-left: 2px solid rgba(255, 255, 255, 0.85) !important;
+}
+
+div.domain .CodeMirror-selected,
+div.domain .CodeMirror-focused .CodeMirror-selected {
+  background: rgba(10, 132, 255, 0.30) !important;
+}
+
+div.domain .cm-tag    { color: #ff79c6 !important; }
+div.domain .cm-string { color: #f1fa8c !important; }
+div.domain .cm-attribute { color: #50fa7b !important; }
+
+/******************************************************
+ * Custom WebUI CSS Settings Page
+ ******************************************************/
+textarea[name="custom_css"],
+textarea[name="custom_css_black"] {
+  background: rgba(0, 0, 0, 0.35) !important;
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-family: monospace !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  resize: vertical !important;
+}
+
+textarea[name="custom_css"]:focus,
+textarea[name="custom_css_black"]:focus {
+  border-color: rgba(255, 255, 255, 0.32) !important;
+  background: rgba(0, 0, 0, 0.45) !important;
+  background-color: rgba(0, 0, 0, 0.45) !important;
   outline: none !important;
 }
