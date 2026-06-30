@@ -1522,6 +1522,25 @@ div.title .switch-button-button,
   transform-origin: center center !important;
 }
 
+/* Status labels */
+#docker_view span.outer.started i,
+#docker_view span.outer.started span.state {
+  color: #30D158 !important;
+  font-weight: 600 !important;
+}
+
+#docker_view span.outer.stopped i,
+#docker_view span.outer.stopped span.state {
+  color: #FF453A !important;
+  font-weight: 600 !important;
+}
+
+#docker_view span.outer.paused i,
+#docker_view span.outer.paused span.state {
+  color: #FF9F0A !important;
+  font-weight: 600 !important;
+}
+
 /******************************************************
  * VM Dashboard Tile
  ******************************************************/
@@ -1662,6 +1681,49 @@ div.title *,
   text-shadow: 0 1px 3px var(--custom-text-shadow) !important;
 }
 
+/* Shade / clone-settings inset panels */
+.shade {
+  background: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  border: 1px solid var(--custom-border-subtle) !important;
+  border-radius: 12px !important;
+}
+
+/******************************************************
+ * Form Inputs
+ ******************************************************/
+form input[type="text"],
+form input[type="number"],
+form input[type="password"],
+form input[type="email"],
+form input[type="url"],
+form input[type="search"] {
+  background: rgba(255, 255, 255, 0.06) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid var(--custom-border-input) !important;
+  border-radius: 8px !important;
+  color: var(--custom-text-primary) !important;
+  padding: 6px 12px !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: border-color 0.15s ease, background 0.15s ease !important;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
+form input[type="url"]:focus,
+form input[type="search"]:focus {
+  background: rgba(255, 255, 255, 0.10) !important;
+  background-color: rgba(255, 255, 255, 0.10) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.18) !important;
+}
+
 
 /******************************************************
  * Buttons
@@ -1674,8 +1736,8 @@ form input[type="submit"],
 .actions input[type="submit"],
 #parity-check input[type="button"],
 #parity-check input[type="submit"],
-div.TableContainer input[type="button"],
-div.TableContainer input[type="submit"],
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) input[type="button"],
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) input[type="submit"],
 .js-actions input[type="button"],
 #js-actions input[type="button"],
 #displaybox input[type="button"],
@@ -1704,8 +1766,8 @@ form input[type="submit"]:hover,
 #actions input[type="submit"]:hover,
 .actions input[type="button"]:hover,
 .actions input[type="submit"]:hover,
-div.TableContainer input[type="button"]:hover,
-div.TableContainer input[type="submit"]:hover,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) input[type="button"]:hover,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) input[type="submit"]:hover,
 #displaybox input[type="button"]:hover,
 #content input[type="button"]:hover,
 #content input[type="submit"]:hover {
@@ -1719,8 +1781,8 @@ div.TableContainer input[type="submit"]:hover,
 
 form input[type="button"]:disabled,
 form input[type="submit"]:disabled,
-div.TableContainer input[type="button"]:disabled,
-div.TableContainer input[type="submit"]:disabled,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) input[type="button"]:disabled,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) input[type="submit"]:disabled,
 .js-actions input[type="button"]:disabled,
 #displaybox input[type="button"]:disabled,
 #content input[type="button"]:disabled,
@@ -1841,7 +1903,7 @@ input#spindown-button:hover:not(:disabled) {
   margin-top: 12px !important;
 }
 
-div.TableContainer {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
@@ -1858,9 +1920,9 @@ div.TableContainer {
   overscroll-behavior-x: contain !important;
 }
 
-div.TableContainer table,
-div.TableContainer table.unraid,
-div.TableContainer table.tablesorter {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table.unraid,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table.tablesorter {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
@@ -1872,17 +1934,17 @@ div.TableContainer table.tablesorter {
   margin: 0 !important;
 }
 
-div.TableContainer table thead,
-div.TableContainer table tbody,
-div.TableContainer table tr {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table thead,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tbody,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tr {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
   box-shadow: none !important;
 }
 
-div.TableContainer table thead tr > th,
-div.TableContainer table thead tr > td {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table thead tr > th,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table thead tr > td {
   background: var(--custom-table-header-bg) !important;
   background-color: var(--custom-table-header-bg) !important;
   background-image: none !important;
@@ -1893,18 +1955,18 @@ div.TableContainer table thead tr > td {
 }
 
 /* Padding */
-div.TableContainer table tr > th:first-child,
-div.TableContainer table tr > td:first-child {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tr > th:first-child,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tr > td:first-child {
   padding-left: 16px !important;
 }
-div.TableContainer table tr > th:last-child,
-div.TableContainer table tr > td:last-child {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tr > th:last-child,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tr > td:last-child {
   padding-right: 16px !important;
 }
 
 
-div.TableContainer table tbody tr > td,
-div.TableContainer table tbody tr > th {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tbody tr > td,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tbody tr > th {
   background: var(--custom-table-cell-bg) !important;
   background-color: var(--custom-table-cell-bg) !important;
   background-image: none !important;
@@ -1914,95 +1976,95 @@ div.TableContainer table tbody tr > th {
   padding: 6px 8px !important;
 }
 
-div.TableContainer table tbody tr:nth-child(even) > td,
-div.TableContainer table tbody tr:nth-child(even) > th {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tbody tr:nth-child(even) > td,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tbody tr:nth-child(even) > th {
   background: var(--custom-table-stripe-bg) !important;
   background-color: var(--custom-table-stripe-bg) !important;
 }
 
-div.TableContainer table tbody tr:hover > td,
-div.TableContainer table tbody tr:hover > th,
-div.TableContainer table tbody tr:nth-child(even):hover > td,
-div.TableContainer table tbody tr:nth-child(even):hover > th {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tbody tr:hover > td,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tbody tr:hover > th,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tbody tr:nth-child(even):hover > td,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table tbody tr:nth-child(even):hover > th {
   background: var(--custom-table-hover-bg) !important;
   background-color: var(--custom-table-hover-bg) !important;
   background-image: none !important;
 }
 
-div.TableContainer .tablesorter-header-inner,
-div.TableContainer .desc_readmore,
-div.TableContainer .readmore-js-section,
-div.TableContainer .readmore-js-toggle,
-div.TableContainer h4,
-div.TableContainer p,
-div.TableContainer strong,
-div.TableContainer em,
-div.TableContainer a.list,
-div.TableContainer i.list,
-div.TableContainer img.list {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) .tablesorter-header-inner,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) .desc_readmore,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) .readmore-js-section,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) .readmore-js-toggle,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) h4,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) p,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) strong,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) em,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.list,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) i.list,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) img.list {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
   box-shadow: none !important;
 }
 
-div.TableContainer a {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a {
   color: var(--custom-text-primary) !important;
 }
 
-div.TableContainer a:hover {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a:hover {
   color: var(--custom-theme-accent) !important;
 }
 
-div.TableContainer a.exec,
-div.TableContainer a.exec span,
-div.TableContainer a.exec i {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec span,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec i {
   color: #0A84FF !important;
   background: transparent !important;
   background-color: transparent !important;
 }
 
-div.TableContainer a.exec:hover,
-div.TableContainer a.exec:hover span,
-div.TableContainer a.exec:hover i {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec:hover,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec:hover span,
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec:hover i {
   color: #0A84FF !important;
   filter: brightness(1.35) !important;
   background: transparent !important;
   background-color: transparent !important;
 }
 
-div.TableContainer input[type="checkbox"] {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) input[type="checkbox"] {
   accent-color: var(--custom-theme-accent-strong) !important;
 }
 
 @media screen and (max-width: 768px) {
-  div.TableContainer table,
-  div.TableContainer table.unraid,
-  div.TableContainer table.tablesorter {
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table.unraid,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table.tablesorter {
     width: max-content !important;
     min-width: 760px !important;
   }
 }
 
-div.TableContainer::-webkit-scrollbar { height: 8px !important; }
-div.TableContainer::-webkit-scrollbar-track {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div)::-webkit-scrollbar { height: 8px !important; }
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div)::-webkit-scrollbar-track {
   background: var(--custom-border-subtle) !important;
   border-radius: 999px !important;
 }
-div.TableContainer::-webkit-scrollbar-thumb {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div)::-webkit-scrollbar-thumb {
   background: var(--custom-theme-accent, rgba(255, 255, 255, 0.45)) !important;
   border-radius: 999px !important;
 }
 
 /* "Checking" text */
-div.TableContainer span[style*="#267CA8"],
-div.TableContainer span[style*="#0088cc"] {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) span[style*="#267CA8"],
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) span[style*="#0088cc"] {
   color: #0A84FF !important;
   text-shadow: none !important;
 }
 
 /* Auto-Start toggle */
-div.TableContainer .switch-button-background {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) .switch-button-background {
   background: rgba(120, 120, 128, 0.36) !important;
   background-color: rgba(120, 120, 128, 0.36) !important;
   border: 1px solid rgba(255, 255, 255, 0.20) !important;
@@ -2011,13 +2073,13 @@ div.TableContainer .switch-button-background {
   transition: background 0.2s ease, border-color 0.2s ease !important;
 }
 
-div.TableContainer .switch-button-background.checked {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) .switch-button-background.checked {
   background: #0A84FF !important;
   background-color: #0A84FF !important;
   border-color: transparent !important;
 }
 
-div.TableContainer .switch-button-button {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) .switch-button-button {
   background: #ffffff !important;
   background-color: #ffffff !important;
   border-radius: 999px !important;
@@ -2029,11 +2091,11 @@ div.TableContainer .switch-button-button {
   transform-origin: center center !important;
 }
 
-div.TableContainer .switch-button-label {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) .switch-button-label {
   text-shadow: none !important;
 }
 
-div.TableContainer .switch-button-label.on {
+:is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) .switch-button-label.on {
   color: #0A84FF !important;
 }
 
@@ -2943,7 +3005,10 @@ div#remotes-buttons button:hover {
     white-space: nowrap !important;
   }
 
-  /* dark mode default */
+  /* dark mode default — selectors must beat #menu > div:nth-child(1) .nav-item a (specificity 1,2,2) */
+  #menu > div:nth-child(1) .nav-item.active a,
+  #menu > div:first-child .nav-item.active a,
+  #menu .nav-tile:not(.right) .nav-item.active a,
   #menu .nav-item.active > a,
   #menu .nav-item.active a {
     color: #000000 !important;
@@ -3081,8 +3146,34 @@ div#remotes-buttons button:hover {
     box-sizing: border-box !important;
   }
 
+  /* Compact tile header: name fills row 1, time + AM/PM on row 2 side-by-side */
+  tbody.sortable span.tile-header-left div.section {
+    display: grid !important;
+    grid-template-columns: auto auto !important;
+    align-items: center !important;
+    column-gap: 6px !important;
+    row-gap: 2px !important;
+  }
+
+  tbody.sortable span.tile-header-left div.section > h3 {
+    grid-column: 1 / -1 !important;
+    margin: 0 !important;
+  }
+
+  /* Expanded tile: prevent wrap so time + AM/PM stay on one line */
+  tbody.sortable div.leftside #current_time {
+    white-space: nowrap !important;
+  }
+
+  tbody.sortable div.leftside span.ampm {
+    display: inline !important;
+    font-size: 2.5rem !important;
+    vertical-align: middle !important;
+    margin-left: 0.2em !important;
+  }
+
   /* --- Tables --- */
-  div.TableContainer {
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) {
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
   }
@@ -3149,8 +3240,8 @@ div#remotes-buttons button:hover {
   }
 
   /* Table header */
-  div.TableContainer table thead tr > th,
-  div.TableContainer table thead tr > td,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table thead tr > th,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) table thead tr > td,
   table.samba_mounts thead tr > th,
   table.samba_mounts thead tr > td,
   table.usb_mounts thead tr > th,
@@ -3203,8 +3294,8 @@ div#remotes-buttons button:hover {
   #actions input[type="submit"]:hover,
   .actions input[type="button"]:hover,
   .actions input[type="submit"]:hover,
-  div.TableContainer input[type="button"]:hover,
-  div.TableContainer input[type="submit"]:hover,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) input[type="button"]:hover,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) input[type="submit"]:hover,
   #displaybox input[type="button"]:hover,
   #content input[type="button"]:hover,
   #content input[type="submit"]:hover {
@@ -3234,32 +3325,32 @@ div#remotes-buttons button:hover {
   }
 
   /* Light mode - Brighter text */
-  div.TableContainer a.exec,
-  div.TableContainer a.exec span,
-  div.TableContainer a.exec i {
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec span,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec i {
     filter: brightness(1.35) !important;
   }
 
-  div.TableContainer a.exec:hover,
-  div.TableContainer a.exec:hover span,
-  div.TableContainer a.exec:hover i {
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec:hover,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec:hover span,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) a.exec:hover i {
     filter: brightness(1.6) !important;
   }
 
-  div.TableContainer .switch-button-label.on {
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) .switch-button-label.on {
     filter: brightness(1.35) !important;
   }
 
   /* Table header icons/links (sort reset, etc.) — dark so they're visible on light header */
-  div.TableContainer thead a,
-  div.TableContainer thead a i,
-  div.TableContainer thead a span {
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) thead a,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) thead a i,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) thead a span {
     color: rgba(0, 0, 0, 0.65) !important;
     fill: rgba(0, 0, 0, 0.65) !important;
   }
 
-  div.TableContainer thead a:hover,
-  div.TableContainer thead a:hover i {
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) thead a:hover,
+  :is(div.TableContainer, div.TableContainer--no-min-width, #zfs_master_div) thead a:hover i {
     color: rgba(0, 0, 0, 0.90) !important;
   }
 }
