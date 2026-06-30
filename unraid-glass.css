@@ -2605,13 +2605,15 @@ td .green, .dot.green,
 }
 
 .fa-circle.orange, span.orange, i.orange,
-td .orange, .dot.orange {
+td .orange, .dot.orange,
+.orange-text, i.orange-text {
   color: #FF9F0A !important;
   fill: #FF9F0A !important;
 }
 
 .fa-circle.red, span.red, i.red,
-td .red, .dot.red {
+td .red, .dot.red,
+.red-text, i.red-text {
   color: #FF453A !important;
   fill: #FF453A !important;
 }
@@ -2702,10 +2704,15 @@ tbody#boot_device .usage-disk {
   background-color: var(--custom-track-bg) !important;
 }
 
-/* Dashboard canvas charts */
-#displaybox canvas,
-tbody.sortable canvas {
+/* Dashboard canvas charts — shift default colors to Apple blue palette */
+#displaybox canvas:not(#netchart),
+tbody.sortable canvas:not(#netchart) {
   filter: hue-rotate(190deg) saturate(0.85) !important;
+}
+
+/* Network chart — keep native red/orange to match legend */
+canvas#netchart {
+  filter: none !important;
 }
 
 /******************************************************
