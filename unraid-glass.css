@@ -1470,8 +1470,8 @@ div.title .switch-button-button,
 #docker_view td:first-child::after,
 #docker_view td:first-child > *::before,
 #docker_view td:first-child > *::after,
-#docker_view td span.fa::before,
-#docker_view td i.fa::before {
+#docker_view td:first-child span.fa::before,
+#docker_view td:first-child i.fa::before {
   display: none !important;
   content: none !important;
   background: transparent !important;
