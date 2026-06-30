@@ -1241,7 +1241,7 @@ tbody.sortable span.tile-header-left {
   gap: 12px !important;
 }
 
-tbody.sortable span.tile-header-left div.section {
+tbody.sortable:not(.mixed) span.tile-header-left div.section {
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
@@ -1250,17 +1250,17 @@ tbody.sortable span.tile-header-left div.section {
   flex-wrap: nowrap !important;
 }
 
-tbody.sortable span.tile-header-left div.section h3 {
+tbody.sortable:not(.mixed) span.tile-header-left div.section h3 {
   font-size: 1.8rem !important;
   margin: 0 !important;
 }
 
 /* Hide redundant hostname subtitle and the trailing <br> */
-tbody.sortable span.tile-header-left div.section > span:not([class]):not([id]) {
+tbody.sortable:not(.mixed) span.tile-header-left div.section > span:not([class]):not([id]) {
   display: none !important;
 }
 
-tbody.sortable span.tile-header-left div.section br {
+tbody.sortable:not(.mixed) span.tile-header-left div.section br {
   display: none !important;
 }
 
@@ -3164,7 +3164,7 @@ div#remotes-buttons button:hover {
   }
 
   /* Compact tile header: name fills row 1, time + AM/PM on row 2 side-by-side */
-  tbody.sortable span.tile-header-left div.section {
+  tbody.sortable:not(.mixed) span.tile-header-left div.section {
     display: grid !important;
     grid-template-columns: auto auto !important;
     align-items: center !important;
@@ -3172,7 +3172,7 @@ div#remotes-buttons button:hover {
     row-gap: 2px !important;
   }
 
-  tbody.sortable span.tile-header-left div.section > h3 {
+  tbody.sortable:not(.mixed) span.tile-header-left div.section > h3 {
     grid-column: 1 / -1 !important;
     margin: 0 !important;
   }
