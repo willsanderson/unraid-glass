@@ -1174,6 +1174,12 @@ tbody.sortable {
   margin: 0 0 var(--custom-dashboard-widget-gap) 0 !important;
 }
 
+/* Tile Management */
+tbody.sortable[style*="display: none"],
+tbody.sortable[style*="display:none"] {
+  display: none !important;
+}
+
 tbody.sortable.ui-sortable-helper {
   overflow: visible !important;
   backdrop-filter: none !important;
@@ -1702,6 +1708,8 @@ form input[type="url"],
 form input[type="search"] {
   background: rgba(255, 255, 255, 0.06) !important;
   background-color: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-border-input) !important;
   border-radius: 8px !important;
   color: var(--custom-text-primary) !important;
@@ -1719,6 +1727,8 @@ form input[type="url"]:focus,
 form input[type="search"]:focus {
   background: rgba(255, 255, 255, 0.10) !important;
   background-color: rgba(255, 255, 255, 0.10) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
   border-color: rgba(255, 255, 255, 0.35) !important;
   outline: none !important;
   box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.18) !important;
@@ -3513,6 +3523,133 @@ div#remotes-buttons button:hover {
   background-color: #0A84FF !important;
   border-color: transparent !important;
   box-shadow: none !important;
+}
+
+/******************************************************
+ * jQuery UI Dialog (Tile Management)
+ ******************************************************/
+
+.ui-widget-overlay {
+  background: rgba(0, 0, 0, 0.45) !important;
+  opacity: 1 !important;
+}
+
+.ui-dialog {
+  background: var(--custom-dashboard-tile-bg) !important;
+  background-color: var(--custom-dashboard-tile-bg) !important;
+  background-image: none !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  border: 1px solid var(--custom-dashboard-tile-border) !important;
+  border-radius: var(--custom-dashboard-tile-radius) !important;
+  box-shadow: var(--custom-dashboard-tile-shadow) !important;
+  color: var(--custom-text-primary) !important;
+  padding: 0 !important;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  border-bottom: 1px solid var(--custom-border-subtle) !important;
+  border-radius: 0 !important;
+  padding: 16px 20px !important;
+}
+
+.ui-dialog .ui-dialog-title {
+  color: var(--custom-text-primary) !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  background-image: none !important;
+  border: 1px solid var(--custom-border-input) !important;
+  border-radius: 50% !important;
+  color: var(--custom-text-secondary) !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: background 0.15s ease !important;
+}
+
+.ui-dialog .ui-dialog-titlebar-close:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  border-color: var(--custom-border-input-hover) !important;
+  color: var(--custom-text-primary) !important;
+}
+
+.ui-dialog .ui-dialog-titlebar-close .ui-icon {
+  background-image: none !important;
+}
+
+.ui-dialog .ui-dialog-content {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  color: var(--custom-text-primary) !important;
+}
+
+.ui-dialog .ui-dialog-content label {
+  color: var(--custom-text-primary) !important;
+}
+
+.ui-dialog input[type="checkbox"] {
+  accent-color: var(--custom-theme-accent) !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  border-top: 1px solid var(--custom-border-subtle) !important;
+  margin: 0 !important;
+  padding: 12px 20px !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  float: none !important;
+}
+
+.ui-dialog .ui-button {
+  background: rgba(255, 255, 255, 0.10) !important;
+  background-color: rgba(255, 255, 255, 0.10) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  font-family: inherit !important;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  box-shadow: none !important;
+  padding: 8px 18px !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  outline: none !important;
+  transition: background 0.15s ease, border-color 0.15s ease !important;
+}
+
+.ui-dialog .ui-button:hover,
+.ui-dialog .ui-button:focus {
+  background: #0A84FF !important;
+  background-color: #0A84FF !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 /******************************************************
