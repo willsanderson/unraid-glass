@@ -108,6 +108,12 @@ Tested on **Unraid 7.x** with Chrome/Chromium-based browsers. Firefox is support
 
 ---
 
+## Credits
+
+This theme was built on top of [Wh1t3Rose's Unraid Themes](https://github.com/Wh1t3Rose/Unraid-Themes), which provided the original glass panel structure and `--custom-dashboard-*` variable foundation. The Apple color palette, nav design, toggle switches, form styling, light mode, mobile layout, and additional features were developed on top of that base.
+
+---
+
 ## License
 
 MIT
