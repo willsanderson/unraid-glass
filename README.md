@@ -50,7 +50,9 @@ Place your wallpaper at:
 /boot/config/plugins/custom.css/assets/bg.jpg
 ```
 
-Any image works. Landscape photos or abstract gradients look best. Falls back to a dark navy `#152843` base background color).
+Any image works. Landscape photos or abstract gradients look best. Falls back to a dark navy `#152843` base background color.
+
+> **After uploading the image**, go to **Settings → Custom WebUI CSS** and click **Sync Now**, then hard-refresh your browser (`Cmd+Shift+R` / `Ctrl+Shift+R`). Without this step the image won't load.
 
 ### 4. Apply the CSS
 
