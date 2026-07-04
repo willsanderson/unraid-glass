@@ -1168,8 +1168,8 @@ tbody.sortable {
   overflow: hidden !important;
   /* Depth */
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
-  /* Layout */
-  display: table !important;
+  /* Layout — no !important on display so jQuery UI sortable can manipulate it */
+  display: table;
   width: 100% !important;
   box-sizing: border-box !important;
   padding: 4px 10px !important;
