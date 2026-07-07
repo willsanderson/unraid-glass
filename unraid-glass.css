@@ -59,7 +59,7 @@
   --custom-screen-dim:              rgba(0, 0, 0, 0.25);
   /* Borders */
   --custom-border-subtle:           rgba(255, 255, 255, 0.08);
-  --custom-border-input:            rgba(255, 255, 255, 0.18);
+  --custom-border-input:            rgba(255, 255, 255, 0.22);
   --custom-border-input-hover:      rgba(255, 255, 255, 0.30);
   --custom-border-panel-hover:      rgba(255, 255, 255, 0.28);
   --custom-separator:               rgba(255, 255, 255, 0.15);
@@ -1168,7 +1168,7 @@ tbody.sortable {
   overflow: hidden !important;
   /* Depth */
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
-  /* Layout — no !important on display so jQuery UI sortable can manipulate it */
+  /* Layout */
   display: table;
   width: 100% !important;
   box-sizing: border-box !important;
@@ -1421,6 +1421,11 @@ div.title .switch-button-button,
 
 .switch-button-label.on {
   color: #0A84FF !important;
+}
+
+/* Form inline toggles (Use Tailscale, Privileged, etc.) — zoom to match header toggle size */
+form .switch-button-background {
+  zoom: 1.35 !important;
 }
 
 
@@ -1708,8 +1713,8 @@ form input[type="password"],
 form input[type="email"],
 form input[type="url"],
 form input[type="search"] {
-  background: rgba(255, 255, 255, 0.06) !important;
-  background-color: rgba(255, 255, 255, 0.06) !important;
+  background: rgba(255, 255, 255, 0.09) !important;
+  background-color: rgba(255, 255, 255, 0.09) !important;
   backdrop-filter: var(--custom-blur) !important;
   -webkit-backdrop-filter: var(--custom-blur) !important;
   border: 1px solid var(--custom-border-input) !important;
@@ -1727,13 +1732,36 @@ form input[type="password"]:focus,
 form input[type="email"]:focus,
 form input[type="url"]:focus,
 form input[type="search"]:focus {
-  background: rgba(255, 255, 255, 0.10) !important;
-  background-color: rgba(255, 255, 255, 0.10) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
   backdrop-filter: var(--custom-blur) !important;
   -webkit-backdrop-filter: var(--custom-blur) !important;
-  border-color: rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(255, 255, 255, 0.38) !important;
   outline: none !important;
-  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.18) !important;
+}
+
+form textarea {
+  background: rgba(255, 255, 255, 0.09) !important;
+  background-color: rgba(255, 255, 255, 0.09) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  border: 1px solid var(--custom-border-input) !important;
+  border-radius: 8px !important;
+  color: var(--custom-text-primary) !important;
+  padding: 8px 12px !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  resize: vertical !important;
+  transition: border-color 0.15s ease, background 0.15s ease !important;
+}
+
+form textarea:focus {
+  background: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  border-color: rgba(255, 255, 255, 0.38) !important;
+  outline: none !important;
 }
 
 
@@ -1809,6 +1837,61 @@ form input[type="submit"]:disabled,
   opacity: 1 !important;
   box-shadow: none !important;
 }
+
+/* <button> elements in forms (EDIT, REMOVE, etc.) — not caught by input[type="button"] */
+form button[type="button"],
+form button[type="submit"],
+#displaybox form button,
+#content form button {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: none !important;
+  color: #ffffff !important;
+  background: rgba(10, 132, 255, 0.10) !important;
+  background-color: rgba(10, 132, 255, 0.10) !important;
+  background-image: none !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
+  border-radius: 999px !important;
+  min-width: unset !important;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+}
+
+form button[type="button"]:hover,
+form button[type="submit"]:hover,
+#displaybox form button:hover,
+#content form button:hover {
+  color: #ffffff !important;
+  background: #0A84FF !important;
+  background-color: #0A84FF !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/******************************************************
+ * Code / Pre Output Blocks
+ ******************************************************/
+
+#displaybox pre,
+#content pre,
+div.content pre {
+  background: rgba(0, 0, 0, 0.40) !important;
+  background-color: rgba(0, 0, 0, 0.40) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 10px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  padding: 12px 16px !important;
+  font-size: 1.2rem !important;
+  line-height: 1.55 !important;
+  overflow: auto !important;
+}
+
 
 /******************************************************
  * Legacy Page Tabs & Action Buttons
@@ -2189,6 +2272,25 @@ div.ToggleViewMode .switch-button-label.on {
   fill: var(--custom-text-primary) !important;
   stroke: var(--custom-text-primary) !important;
   text-shadow: 0 1px 3px var(--custom-text-shadow) !important;
+}
+
+/* Restore toggle track + thumb visibility — the *-descendant rule above forces transparent
+   on everything inside div.title, wiping out the toggle colors */
+#displaybox > div > div.title span.status .switch-button-background {
+  background: rgba(120, 120, 128, 0.36) !important;
+  background-color: rgba(120, 120, 128, 0.36) !important;
+  border-color: rgba(255, 255, 255, 0.20) !important;
+}
+
+#displaybox > div > div.title span.status .switch-button-background.checked {
+  background: #0A84FF !important;
+  background-color: #0A84FF !important;
+  border-color: transparent !important;
+}
+
+#displaybox > div > div.title span.status .switch-button-button {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
 }
 
 /* Reset outer user-list wrapper */
