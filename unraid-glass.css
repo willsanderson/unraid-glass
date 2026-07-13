@@ -1,5 +1,5 @@
 /* Unraid Glass Theme */
-/* Version 1.0.0 */
+/* Version 1.0.4 */
 /* Built on top of Wh1t3Rose's Unraid Themes: https://github.com/Wh1t3Rose/Unraid-Themes */
 
 /******************************************************
@@ -1574,6 +1574,78 @@ form .switch-button-background {
 }
 
 /******************************************************
+ * LXC Plugin Dashboard Tile (ich777)
+ ******************************************************/
+
+/* Outer wrapper — clear default dark background */
+#lxc_display,
+#lxc_display_wrapper,
+#lxcPanel,
+div[id^="lxc_display"],
+div[id^="lxcDisplay"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* Container tile grid row */
+.lxcHolderRow,
+div.lxcHolderRow {
+  background: var(--custom-dashboard-tile-bg) !important;
+  background-color: var(--custom-dashboard-tile-bg) !important;
+  background-image: none !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  border: 1px solid var(--custom-dashboard-tile-border) !important;
+  border-radius: var(--custom-dashboard-tile-radius) !important;
+  box-shadow: var(--custom-dashboard-tile-shadow) !important;
+  color: var(--custom-text-primary) !important;
+}
+
+/* Individual container cells */
+.lxcHolder,
+.lxcHolderItem,
+.lxcHolderDiv,
+div.lxcHolder,
+span.lxcHolder,
+.lxcHolderRow td,
+.lxcHolderRow > div {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--custom-text-primary) !important;
+}
+
+/* Container icon images */
+.lxcHolder img,
+.lxcHolderDiv img,
+.lxcHolderRow img {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Status text */
+.lxcHolder .started,
+.lxcHolderRow .started,
+span.lxcStarted { color: #30D158 !important; }
+
+.lxcHolder .stopped,
+.lxcHolderRow .stopped,
+span.lxcStopped { color: #FF453A !important; }
+
+.lxcHolder .paused,
+.lxcHolderRow .paused,
+span.lxcPaused  { color: #FF9F0A !important; }
+
+/******************************************************
  * Settings
  ******************************************************/
 
@@ -2525,6 +2597,14 @@ img.spotlightIcon {
 div.menuItems.menuAdjust {
   padding: 15px !important;
   box-sizing: border-box !important;
+  overflow-y: auto !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+div.menuItems.menuAdjust::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
 }
 
 hr {
@@ -2559,6 +2639,14 @@ hr {
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
   overflow: visible !important;
   color: var(--custom-text-primary) !important;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+.ca_holder:hover,
+.ca_holder.spotlightHome:hover,
+#templates_content .ca_holder:hover {
+  box-shadow: 0 0 0 1px rgba(10, 132, 255, 0.25), 0 8px 32px rgba(10, 132, 255, 0.14), var(--custom-dashboard-tile-shadow) !important;
+  border-color: rgba(10, 132, 255, 0.28) !important;
 }
 
 
@@ -2570,17 +2658,22 @@ hr {
 #templates_content .greenCardBackground,
 #templates_content .installedCardBackground {
   position: relative !important;
-  z-index: 1 !important;
-  border-top-right-radius: var(--custom-dashboard-tile-radius) !important;
+  z-index: 2 !important;
+  border-radius: 999px !important;
+  padding: 2px 9px !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  white-space: nowrap !important;
 }
 
-#templates_content .officialCardBackground   { background-color: #BF5AF2 !important; }
-#templates_content .spotlightCardBackground  { background-color: #0A84FF !important; }
-#templates_content .betaCardBackground       { background-color: #FF9F0A !important; }
-#templates_content .LTOfficialCardBackground { background-color: #FF453A !important; }
-#templates_content .warningCardBackground    { background-color: #FF375F !important; }
-#templates_content .greenCardBackground      { background-color: #30D158 !important; }
-#templates_content .installedCardBackground  { background-color: #5E5CE6 !important; }
+#templates_content .officialCardBackground   { background: linear-gradient(135deg, #BF5AF2, #9B3EDC) !important; }
+#templates_content .spotlightCardBackground  { background: linear-gradient(135deg, #0A84FF, #006EE6) !important; }
+#templates_content .betaCardBackground       { background: linear-gradient(135deg, #FF9F0A, #E07B00) !important; }
+#templates_content .LTOfficialCardBackground { background: linear-gradient(135deg, #FF453A, #C82020) !important; }
+#templates_content .warningCardBackground    { background: linear-gradient(135deg, #FF375F, #C81D45) !important; }
+#templates_content .greenCardBackground      { background: linear-gradient(135deg, #30D158, #18A038) !important; }
+#templates_content .installedCardBackground  { background: linear-gradient(135deg, #5E5CE6, #4040C8) !important; }
 
 #templates_content .officialCardBackground .installedCardText,
 #templates_content .spotlightCardBackground .installedCardText,
@@ -2660,6 +2753,89 @@ hr {
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
+}
+
+/******************************************************
+ * Community Apps — Search Row & Controls (updated DOM)
+ ******************************************************/
+
+/* Sidebar scrollbar already hidden above (div.menuItems.menuAdjust) */
+
+/* New search row containers */
+.caSearchModalTopRow,
+.caSearchModalIconControls {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Desktop inline search input area */
+div.caDesktopSearchInline,
+div#searchFilter {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+div.caDesktopSearchInline input[type="text"],
+div.caDesktopSearchInline input[type="search"],
+div.caDesktopSearchInline .awesomplete input,
+div#searchFilter input[type="text"],
+div#searchFilter input[type="search"],
+div#searchFilter .awesomplete input {
+  border-radius: 999px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  background: var(--custom-search-bg) !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  border: 1px solid var(--custom-search-border) !important;
+  color: var(--custom-text-primary) !important;
+  box-shadow:
+    inset 0 0.5px 0 var(--custom-border-input),
+    0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+div.caDesktopSearchInline input::placeholder,
+div#searchFilter input::placeholder {
+  color: var(--custom-text-placeholder) !important;
+}
+
+/* Right-side controls row — Credits & Settings */
+.caSearchRowEnd,
+div.caSearchRowEnd {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+div.caCreditsInfo,
+div.caSettingsGear {
+  position: relative !important;
+  z-index: 100 !important;
+  flex-shrink: 0 !important;
+  background: var(--custom-surface-raised) !important;
+  background-image: none !important;
+  border: 1px solid var(--custom-border-input) !important;
+  border-radius: 20px !important;
+  color: var(--custom-text-primary) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+div.caCreditsInfo:hover,
+div.caSettingsGear:hover {
+  background: var(--custom-state-hover) !important;
+  border-color: var(--custom-border-input-hover) !important;
 }
 
 
