@@ -1,5 +1,5 @@
 /* Unraid Glass Theme */
-/* Version 1.0.5 */
+/* Version 1.0.6 */
 /* Built on top of Wh1t3Rose's Unraid Themes: https://github.com/Wh1t3Rose/Unraid-Themes */
 
 /******************************************************
@@ -2538,6 +2538,8 @@ body > div.searchAreaHolder.menuAdjust div.searchArea {
   align-items: center !important;
   gap: 8px !important;
   padding-left: 23rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
   overflow: visible !important;
 }
 
@@ -2859,7 +2861,7 @@ hr {
 }
 
 .ca_holder img.ca_displayIcon {
-  background: transparent !important;
+  background: #2c2c2e !important;
   border: 0 !important;
   box-shadow: none !important;
 }
@@ -2965,6 +2967,178 @@ div.caCreditsInfo:hover,
 div.caSettingsGear:hover {
   background: var(--custom-state-hover) !important;
   border-color: var(--custom-border-input-hover) !important;
+}
+
+/******************************************************
+ * Community Apps — App Detail Sidebar
+ ******************************************************/
+
+/* Main sidebar panel */
+div.sidenav {
+  background: rgba(14, 22, 38, 0.82) !important;
+  background-color: rgba(14, 22, 38, 0.82) !important;
+  backdrop-filter: blur(28px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.5) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: -12px 0 48px rgba(0, 0, 0, 0.45) !important;
+  color: var(--custom-text-primary) !important;
+  --sidebar-background: transparent;
+  --sidebar-text: #ffffff;
+  --support-popup-background: rgba(14, 22, 38, 0.78);
+  --support-popup-text: rgba(255, 255, 255, 0.85);
+  --support-popup-background-overlay-color: transparent;
+}
+
+/* Close button */
+div.sidenav .sidebarClose,
+div.sidenav a[onclick*="closeSideNav"],
+div.sidenav button[onclick*="closeSideNav"] {
+  background: rgba(255, 255, 255, 0.10) !important;
+  background-color: rgba(255, 255, 255, 0.10) !important;
+  backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
+  border-radius: 999px !important;
+  color: var(--custom-text-primary) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transition: background 0.15s ease !important;
+}
+
+div.sidenav .sidebarClose:hover,
+div.sidenav a[onclick*="closeSideNav"]:hover,
+div.sidenav button[onclick*="closeSideNav"]:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Content area */
+div#sidenavContent,
+div.sidenav #sidenavContent {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--custom-text-primary) !important;
+}
+
+/* All text inside the sidebar */
+div.sidenav *:not(input):not(button):not(a.caButton):not(a.infoButton):not(a.supportButton) {
+  color: var(--custom-text-primary) !important;
+  text-shadow: none !important;
+}
+
+/* Headings */
+div.sidenav h1,
+div.sidenav h2,
+div.sidenav h3,
+div.sidenav h4 {
+  color: #ffffff !important;
+}
+
+/* App name accent */
+div.sidenav .ca_applicationName,
+div.sidenav [class*="applicationName"] {
+  color: var(--custom-theme-accent) !important;
+}
+
+/* Detail rows / tables */
+div.sidenav table,
+div.sidenav table tr,
+div.sidenav table td,
+div.sidenav table th {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  color: var(--custom-text-primary) !important;
+}
+
+/* Section dividers */
+div.sidenav hr {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Action buttons (Install, Support, Pin App) */
+div.sidenav .caButton,
+div.sidenav .infoButton,
+div.sidenav .supportButton,
+div.sidenav .actionsButton,
+div.sidenav a.caButton,
+div.sidenav a.infoButton,
+div.sidenav a.supportButton,
+div.sidenav a.actionsButton {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 20px !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transition: background 0.15s ease, border-color 0.15s ease !important;
+}
+
+div.sidenav .caButton:hover,
+div.sidenav .infoButton:hover,
+div.sidenav .supportButton:hover,
+div.sidenav .actionsButton:hover,
+div.sidenav a.caButton:hover,
+div.sidenav a.infoButton:hover,
+div.sidenav a.supportButton:hover,
+div.sidenav a.actionsButton:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  background-color: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.40) !important;
+  box-shadow: none !important;
+}
+
+/* Links */
+div.sidenav a:not(.caButton):not(.infoButton):not(.supportButton):not(.actionsButton) {
+  color: var(--custom-theme-accent) !important;
+}
+
+/* App description — Apple glass */
+div.sidenav .popupDescription,
+div.sidenav .popupRepoDescription,
+div.sidenav .popup_readmore {
+  background: rgba(14, 22, 38, 0.78) !important;
+  background-color: rgba(14, 22, 38, 0.78) !important;
+  background-image: none !important;
+  backdrop-filter: blur(24px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  border-radius: 16px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  padding: 14px 16px !important;
+  box-sizing: border-box !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 4px 20px rgba(0, 0, 0, 0.25) !important;
+  font-size: 1.2rem !important;
+  line-height: 1.6 !important;
+  -webkit-mask-image: unset !important;
+  mask-image: unset !important;
+}
+
+/* App icon — strip the default dark rounded-square background */
+div.sidenav img.popupIcon,
+div.sidenav .ca_popupIconArea img,
+div.sidenav .popupIcon img {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* Scrollbar */
+div.sidenav::-webkit-scrollbar {
+  width: 6px !important;
+}
+div.sidenav::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+div.sidenav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.20) !important;
+  border-radius: 999px !important;
 }
 
 
