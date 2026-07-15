@@ -1,5 +1,5 @@
 /* Unraid Glass Theme */
-/* Version 1.0.4 */
+/* Version 1.0.5 */
 /* Built on top of Wh1t3Rose's Unraid Themes: https://github.com/Wh1t3Rose/Unraid-Themes */
 
 /******************************************************
@@ -2527,12 +2527,38 @@ body > div.searchAreaHolder.menuAdjust {
   border: none !important;
   box-shadow: none !important;
   margin-top: 8px !important;
+  overflow: visible !important;
 }
 
 body > div.searchAreaHolder.menuAdjust div.searchArea {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding-left: 23rem !important;
+  overflow: visible !important;
+}
+
+/* #searchFilter is the real flex container holding input + button */
+body > div.searchAreaHolder.menuAdjust div#searchFilter {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* awesomplete: don't grow — let the input determine width; position:relative anchors the dropdown ul */
+body > div.searchAreaHolder.menuAdjust div.awesomplete {
+  display: flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+body > div.searchAreaHolder.menuAdjust div.awesomplete input {
+  flex: none !important;
+  width: 320px !important;
 }
 
 body > div.searchAreaHolder.menuAdjust input[type="text"],
@@ -2556,16 +2582,22 @@ body > div.searchAreaHolder.menuAdjust div.awesomplete input::placeholder {
 }
 
 body > div.searchAreaHolder.menuAdjust span.searchSubmit {
-  width: 2rem !important;
-  height: 2rem !important;
-  min-width: 2rem !important;
+  width: 3.4rem !important;
+  height: 3.4rem !important;
+  min-width: 3.4rem !important;
+  max-height: 3.4rem !important;
   border-radius: 50% !important;
+  position: relative !important;
   left: 0 !important;
-  margin-left: 6px !important;
-  padding: 6px !important;
-  display: inline-flex !important;
+  top: -5px !important;
+  margin: 0 0 0 6px !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  align-self: center !important;
+  flex-shrink: 0 !important;
   background: var(--custom-search-btn-bg) !important;
   backdrop-filter: var(--custom-blur) !important;
   -webkit-backdrop-filter: var(--custom-blur) !important;
@@ -2574,6 +2606,7 @@ body > div.searchAreaHolder.menuAdjust span.searchSubmit {
     inset 0 0.5px 0 var(--custom-border-input),
     0 4px 12px rgba(0, 0, 0, 0.15) !important;
   transition: background 0.15s ease, border-color 0.15s ease !important;
+  box-sizing: border-box !important;
 }
 
 body > div.searchAreaHolder.menuAdjust span.searchSubmit:hover {
@@ -2583,6 +2616,54 @@ body > div.searchAreaHolder.menuAdjust span.searchSubmit:hover {
 
 #searchButton:hover {
   color: var(--custom-text-primary) !important;
+}
+
+/* Awesomplete dropdown — glass theme + anchor below the input */
+body > div.searchAreaHolder.menuAdjust .awesomplete > ul {
+  position: absolute !important;
+  top: calc(100% + 2px) !important;
+  left: 0 !important;
+  z-index: 9999 !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+  padding: 8px !important;
+  list-style: none !important;
+  overflow: hidden !important;
+  border-radius: 16px !important;
+  background: rgba(18, 26, 42, 0.88) !important;
+  background-color: rgba(18, 26, 42, 0.88) !important;
+  backdrop-filter: blur(24px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 0.5px 0 rgba(255,255,255,0.12) !important;
+}
+
+/* Hide the default caret arrow */
+body > div.searchAreaHolder.menuAdjust .awesomplete > ul::before,
+body > div.searchAreaHolder.menuAdjust .awesomplete > ul::after {
+  display: none !important;
+}
+
+body > div.searchAreaHolder.menuAdjust .awesomplete > ul li {
+  padding: 8px 14px !important;
+  color: rgba(255, 255, 255, 0.90) !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 999px !important;
+  transition: background 0.12s ease !important;
+}
+
+body > div.searchAreaHolder.menuAdjust .awesomplete > ul li:hover,
+body > div.searchAreaHolder.menuAdjust .awesomplete > ul li[aria-selected="true"] {
+  background: rgba(255, 255, 255, 0.10) !important;
+  background-color: rgba(255, 255, 255, 0.10) !important;
+}
+
+body > div.searchAreaHolder.menuAdjust .awesomplete > ul li mark {
+  background: transparent !important;
+  color: var(--custom-theme-accent) !important;
+  font-weight: 600 !important;
 }
 
 #templates_content .homeMore,
@@ -2637,19 +2718,23 @@ hr {
   border: 1px solid var(--custom-dashboard-tile-border) !important;
   border-radius: var(--custom-dashboard-tile-radius) !important;
   box-shadow: var(--custom-dashboard-tile-shadow) !important;
-  overflow: visible !important;
+  overflow: hidden !important;
   color: var(--custom-text-primary) !important;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
 }
 
 .ca_holder:hover,
 .ca_holder.spotlightHome:hover,
 #templates_content .ca_holder:hover {
-  box-shadow: 0 0 0 1px rgba(10, 132, 255, 0.25), 0 8px 32px rgba(10, 132, 255, 0.14), var(--custom-dashboard-tile-shadow) !important;
-  border-color: rgba(10, 132, 255, 0.28) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: var(--custom-dashboard-tile-shadow) !important;
 }
 
 
+/* Corner ribbon badges — keep CA's flow-based positioning intact,
+   just swap clip-path for one that rounds the top-right corner to match the tile radius.
+   9rem badge = 90px at Unraid's ~10px root font; tile radius = 18px → Q curve at (72,0)→(90,18). */
 #templates_content .officialCardBackground,
 #templates_content .spotlightCardBackground,
 #templates_content .betaCardBackground,
@@ -2657,14 +2742,11 @@ hr {
 #templates_content .warningCardBackground,
 #templates_content .greenCardBackground,
 #templates_content .installedCardBackground {
+  clip-path: path('M 0 0 L 72 0 Q 90 0 90 18 L 90 90 Z') !important;
   position: relative !important;
-  z-index: 2 !important;
-  border-radius: 999px !important;
-  padding: 2px 9px !important;
-  font-size: 0.72rem !important;
-  font-weight: 600 !important;
-  line-height: 1.5 !important;
-  white-space: nowrap !important;
+  z-index: 3 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
 
 #templates_content .officialCardBackground   { background: linear-gradient(135deg, #BF5AF2, #9B3EDC) !important; }
@@ -2702,6 +2784,33 @@ hr {
   box-shadow: none !important;
 }
 
+
+/* Ensure buttons render above description text */
+.ca_holder .ca_bottomLine,
+.ca_holder .ca_bottomLineSpotLight {
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* CA sets spotlight buttons at top:15rem — too high; push down to match regular cards */
+.ca_holder .ca_bottomLineSpotLight {
+  top: 16rem !important;
+}
+
+/* Clip description text so it can't bleed into the button row */
+.ca_holder .cardDescription,
+.ca_holder .cardDesc {
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 4 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+/* Pin description container below buttons in the stacking order */
+.ca_holder .ca_backgroundClickable:not(.ca_bottomLine):not(.ca_bottomLineSpotLight) {
+  z-index: 1 !important;
+}
+
 .ca_holder .ca_applicationName,
 .ca_holder .ca_applicationName.ellipsis {
   color: var(--custom-theme-accent) !important;
@@ -2715,28 +2824,28 @@ hr {
   color: var(--custom-text-primary) !important;
 }
 
-.ca_holder .caButton,
-.ca_holder .infoButton,
-.ca_holder .supportButton,
-.ca_holder .actionsButton {
-  background: var(--custom-surface-raised) !important;
-  background-color: var(--custom-surface-raised) !important;
+#templates_content .ca_holder .caButton,
+#templates_content .ca_holder .infoButton,
+#templates_content .ca_holder .supportButton,
+#templates_content .ca_holder .actionsButton {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
   background-image: none !important;
-  color: var(--custom-text-primary) !important;
-  border: 1px solid var(--custom-border-input) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
   border-radius: 20px !important;
   box-shadow: none !important;
   text-shadow: none !important;
 }
 
-.ca_holder .caButton:hover,
-.ca_holder .infoButton:hover,
-.ca_holder .supportButton:hover,
-.ca_holder .actionsButton:hover {
-  background: var(--custom-state-hover) !important;
-  background-color: var(--custom-state-hover) !important;
-  color: var(--custom-text-primary) !important;
-  border-color: var(--custom-border-input-hover) !important;
+#templates_content .ca_holder .caButton:hover,
+#templates_content .ca_holder .infoButton:hover,
+#templates_content .ca_holder .supportButton:hover,
+#templates_content .ca_holder .actionsButton:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  background-color: rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.40) !important;
   box-shadow: none !important;
 }
 
@@ -2755,11 +2864,30 @@ hr {
   box-shadow: none !important;
 }
 
+.ca_holder .ca_iconArea {
+  margin-bottom: 8px !important;
+  padding-bottom: 2px !important;
+}
+
 /******************************************************
- * Community Apps — Search Row & Controls (updated DOM)
+ * Community Apps
  ******************************************************/
 
-/* Sidebar scrollbar already hidden above (div.menuItems.menuAdjust) */
+/* Main content area */
+div.mainArea.menuAdjust,
+div.mainArea.menuAdjust.menuHidden {
+  top: 0 !important;
+  bottom: 1rem !important;
+  height: auto !important;
+  left: 20.5rem !important;
+}
+
+/* Search area holder */
+div.searchAreaHolder.menuAdjust,
+div.searchAreaHolder.menuAdjust.menuHidden {
+  top: calc(var(--ca-header-image-height) + var(--ca-menu-height) + var(--search-area-top) + 55px) !important;
+  z-index: 200 !important;
+}
 
 /* New search row containers */
 .caSearchModalTopRow,
@@ -2781,6 +2909,7 @@ div#searchFilter {
   align-items: center !important;
   position: relative !important;
   z-index: 10 !important;
+  overflow: visible !important;
 }
 
 div.caDesktopSearchInline input[type="text"],
