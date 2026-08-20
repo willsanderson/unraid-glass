@@ -67,6 +67,20 @@ Hard-refresh your browser (`Cmd+Shift+R` / `Ctrl+Shift+R`) to clear the styleshe
 
 ---
 
+## Updating
+
+Because the CSS is pasted rather than installed, it won't update itself. To upgrade, repeat step 4 with the newer file and hard-refresh.
+
+**Which version am I running?** Look at line 2 of the CSS in the **Global CSS** box:
+
+```css
+/* Version 1.0.7 */
+```
+
+Compare that against the [latest release](https://github.com/willsanderson/unraid-glass/releases/latest). If you're behind, update before reporting a bug, since it may already be fixed.
+
+---
+
 ## Customization
 
 All colors and surface values are CSS variables defined at the top of the file under `:root`. You can override any of them without touching the rest of the stylesheet.
