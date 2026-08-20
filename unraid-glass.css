@@ -2435,9 +2435,11 @@ div.ToggleViewMode .switch-button-label.on {
 /******************************************************
  * Users
  ******************************************************/
-#displaybox > div > div:nth-child(1):not(.Panel):not(.Panels *):not(.title),
+/* :not(.frame) — on the Dashboard div.frame wraps every tile, and when it lands at
+   nth-child(1) this paints one giant panel behind the whole grid */
+#displaybox > div > div:nth-child(1):not(.Panel):not(.Panels *):not(.title):not(.frame),
 #title,
-#displaybox > div > div:nth-child(3) > div:not(.Panel):not(.Panels *) {
+#displaybox > div > div:nth-child(3) > div:not(.Panel):not(.Panels *):not(.frame) {
   background: var(--custom-dashboard-tile-bg) !important;
   background-color: var(--custom-dashboard-tile-bg) !important;
   background-image: none !important;
@@ -2450,9 +2452,9 @@ div.ToggleViewMode .switch-button-label.on {
   text-shadow: 0 1px 3px var(--custom-text-shadow) !important;
 }
 
-#displaybox > div > div:nth-child(1):not(.Panel):not(.Panels *) *,
+#displaybox > div > div:nth-child(1):not(.Panel):not(.Panels *):not(.frame) *,
 #title *,
-#displaybox > div > div:nth-child(3) > div:not(.Panel):not(.Panels *) * {
+#displaybox > div > div:nth-child(3) > div:not(.Panel):not(.Panels *):not(.frame) * {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
