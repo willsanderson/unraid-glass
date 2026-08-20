@@ -1,5 +1,5 @@
 /* Unraid Glass Theme */
-/* Version 1.0.6 */
+/* Version 1.0.7 */
 /* Built on top of Wh1t3Rose's Unraid Themes: https://github.com/Wh1t3Rose/Unraid-Themes */
 
 /******************************************************
@@ -633,6 +633,19 @@ hr[class*="from-unraid-red"],
 /* Hide empty placeholder fieldsets but NOT ones containing actual inputs (e.g. User Scripts prompt) */
 .sweet-alert fieldset:not(.docker):not(:has(input)):not(:has(textarea)):not(:has(select)) {
   display: none !important;
+}
+
+/* swal type:'input' — no :has(), so the confirm field survives browsers that drop the rule above */
+.sweet-alert.show-input fieldset {
+  display: block !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 16px 0 0 !important;
+}
+
+.sweet-alert.show-input fieldset input[type="text"],
+.sweet-alert input[type="text"].swal-input-show {
+  display: block !important;
 }
 
 /* Style visible input fieldsets — strip native fieldset chrome, add spacing */
@@ -1482,13 +1495,18 @@ form .switch-button-background {
 #docker_view td:first-child::before,
 #docker_view td:first-child::after,
 #docker_view td:first-child > *::before,
-#docker_view td:first-child > *::after,
-#docker_view td:first-child span.fa::before,
-#docker_view td:first-child i.fa::before {
+#docker_view td:first-child > *::after {
   display: none !important;
   content: none !important;
   background: transparent !important;
   opacity: 0 !important;
+}
+
+/* Status shape only — a blanket .fa::before kill also blanks fa-icon container images */
+#docker_view span.inner > i.fa.started,
+#docker_view span.inner > i.fa.stopped,
+#docker_view span.inner > i.fa.paused {
+  display: none !important;
 }
 
 #docker_view tr.updated td > span {
@@ -1571,6 +1589,39 @@ form .switch-button-background {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
+}
+
+/* Same state treatment as the Docker tile — untouched, fa-square renders as a white block */
+#vm_view span.inner > i.fa.started,
+#vm_view span.inner > i.fa.stopped,
+#vm_view span.inner > i.fa.paused,
+#vm_view_usage span.inner > i.fa.started,
+#vm_view_usage span.inner > i.fa.stopped,
+#vm_view_usage span.inner > i.fa.paused {
+  display: none !important;
+}
+
+#vm_view span.outer.started span.state,
+#vm_view_usage span.outer.started span.state {
+  color: #30D158 !important;
+  font-weight: 600 !important;
+}
+
+#vm_view span.outer.stopped span.state,
+#vm_view_usage span.outer.stopped span.state {
+  color: #FF453A !important;
+  font-weight: 600 !important;
+}
+
+#vm_view span.outer.paused span.state,
+#vm_view_usage span.outer.paused span.state {
+  color: #FF9F0A !important;
+  font-weight: 600 !important;
+}
+
+#vm_view span.state,
+#vm_view_usage span.state {
+  margin-left: 0 !important;
 }
 
 /******************************************************
@@ -2313,6 +2364,71 @@ div.ToggleViewMode .switch-button-label {
 
 div.ToggleViewMode .switch-button-label.on {
   color: #0A84FF !important;
+}
+
+
+/******************************************************
+ * Unwrapped Tables — plugins that skip div.TableContainer
+ ******************************************************/
+#displaybox .content > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre):not([id^="db_box"]),
+#displaybox .content > form > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre),
+#displaybox .content .content--non-responsive > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) {
+  background: var(--custom-dashboard-tile-bg) !important;
+  background-color: var(--custom-dashboard-tile-bg) !important;
+  background-image: none !important;
+  backdrop-filter: var(--custom-blur) !important;
+  -webkit-backdrop-filter: var(--custom-blur) !important;
+  border: 1px solid var(--custom-dashboard-tile-border) !important;
+  border-radius: var(--custom-dashboard-tile-radius) !important;
+  box-shadow: var(--custom-dashboard-tile-shadow) !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden !important;
+}
+
+#displaybox .content > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre):not([id^="db_box"]) :is(thead, tbody, tr, th, td),
+#displaybox .content > form > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) :is(thead, tbody, tr, th, td),
+#displaybox .content .content--non-responsive > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) :is(thead, tbody, tr, th, td) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: var(--custom-border-subtle) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+#displaybox .content > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre):not([id^="db_box"]) > thead > tr > :is(th, td),
+#displaybox .content > form > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) > thead > tr > :is(th, td),
+#displaybox .content .content--non-responsive > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) > thead > tr > :is(th, td) {
+  background: var(--custom-table-header-bg) !important;
+  background-color: var(--custom-table-header-bg) !important;
+  color: var(--custom-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+#displaybox .content > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre):not([id^="db_box"]) > :is(thead, tbody) > tr > :is(th, td):first-child,
+#displaybox .content > form > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) > :is(thead, tbody) > tr > :is(th, td):first-child,
+#displaybox .content .content--non-responsive > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) > :is(thead, tbody) > tr > :is(th, td):first-child {
+  padding-left: 16px !important;
+}
+
+#displaybox .content > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre):not([id^="db_box"]) > :is(thead, tbody) > tr > :is(th, td):last-child,
+#displaybox .content > form > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) > :is(thead, tbody) > tr > :is(th, td):last-child,
+#displaybox .content .content--non-responsive > table:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) > :is(thead, tbody) > tr > :is(th, td):last-child {
+  padding-right: 16px !important;
+}
+
+/* Data tables only; the :not() chain is repeated to outweigh the transparent-cell rule */
+#displaybox .content > table.tablesorter:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre):not([id^="db_box"]) > tbody > tr:nth-child(even) > :is(th, td),
+#displaybox .content .content--non-responsive > table.tablesorter:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) > tbody > tr:nth-child(even) > :is(th, td) {
+  background: var(--custom-table-stripe-bg) !important;
+  background-color: var(--custom-table-stripe-bg) !important;
+}
+
+#displaybox .content > table.tablesorter:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre):not([id^="db_box"]) > tbody > tr:hover > :is(th, td),
+#displaybox .content .content--non-responsive > table.tablesorter:not(.dashboard):not(.snapshot):not(.ArrayOperation-Table):not(.pre) > tbody > tr:hover > :is(th, td) {
+  background: var(--custom-table-hover-bg) !important;
+  background-color: var(--custom-table-hover-bg) !important;
 }
 
 
